@@ -1,6 +1,6 @@
 use v6.c;
 
-use GLib::Roles::Definitions;
+use GLib::Raw::Definitions;
 
 unit package GDK::Raw::Enums;
 
@@ -591,3 +591,118 @@ our enum GdkGrabStatusEnum is export (
   GDK_GRAB_FROZEN          => 4,
   GDK_GRAB_FAILED          => 5
 );
+
+constant GdkWMFunction is export := guint32;
+our enum GdkWMFunctionEnum is export (
+    GDK_FUNC_ALL =>  1 +< 0,
+    GDK_FUNC_RESIZE =>  1 +< 1,
+    GDK_FUNC_MOVE =>  1 +< 2,
+    GDK_FUNC_MINIMIZE =>  1 +< 3,
+    GDK_FUNC_MAXIMIZE =>  1 +< 4,
+    GDK_FUNC_CLOSE =>  1 +< 5,
+);
+
+constant GdkTouchpadGesturePhase is export := guint32;
+our enum GdkTouchpadGesturePhaseEnum is export <
+    GDK_TOUCHPAD_GESTURE_PHASE_BEGIN
+    GDK_TOUCHPAD_GESTURE_PHASE_UPDATE
+    GDK_TOUCHPAD_GESTURE_PHASE_END
+    GDK_TOUCHPAD_GESTURE_PHASE_CANCEL
+>;
+
+constant GdkStatus is export := gint32;
+our enum GdkStatusEnum is export (
+    GDK_OK =>  0,
+    GDK_ERROR =>  -1,
+    GDK_ERROR_PARAM =>  -2,
+    GDK_ERROR_FILE =>  -3,
+    GDK_ERROR_MEM =>  -4,
+);
+
+constant GdkSettingAction is export := guint32;
+our enum GdkSettingActionEnum is export <
+    GDK_SETTING_ACTION_NEW
+    GDK_SETTING_ACTION_CHANGED
+    GDK_SETTING_ACTION_DELETED
+>;
+
+constant GdkScrollDirection is export := guint32;
+our enum GdkScrollDirectionEnum is export <
+    GDK_SCROLL_UP
+    GDK_SCROLL_DOWN
+    GDK_SCROLL_LEFT
+    GDK_SCROLL_RIGHT
+    GDK_SCROLL_SMOOTH
+>;
+
+constant GdkPropertyState is export := guint32;
+our enum GdkPropertyStateEnum is export <
+    GDK_PROPERTY_NEW_VALUE
+    GDK_PROPERTY_DELETE
+>;
+
+constant GdkPropMode is export := guint32;
+our enum GdkPropModeEnum is export <
+    GDK_PROP_MODE_REPLACE
+    GDK_PROP_MODE_PREPEND
+    GDK_PROP_MODE_APPEND
+>;
+
+constant GdkOwnerChange is export := guint32;
+our enum GdkOwnerChangeEnum is export <
+    GDK_OWNER_CHANGE_NEW_OWNER
+    GDK_OWNER_CHANGE_DESTROY
+    GDK_OWNER_CHANGE_CLOSE
+>;
+
+constant GdkGrabOwnership is export := guint32;
+our enum GdkGrabOwnershipEnum is export <
+    GDK_OWNERSHIP_NONE
+    GDK_OWNERSHIP_WINDOW
+    GDK_OWNERSHIP_APPLICATION
+>;
+
+constant GdkGLError is export := guint32;
+our enum GdkGLErrorEnum is export <
+    GDK_GL_ERROR_NOT_AVAILABLE
+    GDK_GL_ERROR_UNSUPPORTED_FORMAT
+    GDK_GL_ERROR_UNSUPPORTED_PROFILE
+>;
+
+constant GdkFrameClockPhase is export := guint32;
+our enum GdkFrameClockPhaseEnum is export (
+    GDK_FRAME_CLOCK_PHASE_NONE =>  0,
+    GDK_FRAME_CLOCK_PHASE_FLUSH_EVENTS =>  1 +< 0,
+    GDK_FRAME_CLOCK_PHASE_BEFORE_PAINT =>  1 +< 1,
+    GDK_FRAME_CLOCK_PHASE_UPDATE =>  1 +< 2,
+    GDK_FRAME_CLOCK_PHASE_LAYOUT =>  1 +< 3,
+    GDK_FRAME_CLOCK_PHASE_PAINT =>  1 +< 4,
+    GDK_FRAME_CLOCK_PHASE_RESUME_EVENTS =>  1 +< 5,
+    GDK_FRAME_CLOCK_PHASE_AFTER_PAINT =>  1 +< 6,
+);
+
+constant GdkFilterReturn is export := guint32;
+our enum GdkFilterReturnEnum is export <
+    GDK_FILTER_CONTINUE
+    GDK_FILTER_TRANSLATE
+    GDK_FILTER_REMOVE
+>;
+
+constant GdkDeviceToolType is export := guint32;
+our enum GdkDeviceToolTypeEnum is export <
+    GDK_DEVICE_TOOL_TYPE_UNKNOWN
+    GDK_DEVICE_TOOL_TYPE_PEN
+    GDK_DEVICE_TOOL_TYPE_ERASER
+    GDK_DEVICE_TOOL_TYPE_BRUSH
+    GDK_DEVICE_TOOL_TYPE_PENCIL
+    GDK_DEVICE_TOOL_TYPE_AIRBRUSH
+    GDK_DEVICE_TOOL_TYPE_MOUSE
+    GDK_DEVICE_TOOL_TYPE_LENS
+>;
+
+constant GdkDevicePadFeature is export := guint32;
+our enum GdkDevicePadFeatureEnum is export <
+    GDK_DEVICE_PAD_FEATURE_BUTTON
+    GDK_DEVICE_PAD_FEATURE_RING
+    GDK_DEVICE_PAD_FEATURE_STRIP
+>;

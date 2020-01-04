@@ -126,6 +126,8 @@ class GDK::FrameClock  {
   }
 
   method get_type is also<get-type> {
+    state ($n, $t);
+    
     unstable_get_type( self.^name, &gdk_frame_clock_get_type, $n, $t );
   }
 

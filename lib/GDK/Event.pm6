@@ -26,7 +26,7 @@ class GDK::Event {
   multi method new (GdkEvents $event) {
     $event ?? self.bless( event => cast(GdkEventAny, $event) ) !! Nil;
   }
-  method new (Int() $type) {
+  multi method new (Int() $type) {
     my uint32 $t = $type;
     my $event = cast(GdkEventAny, gdk_event_new($t));
 
@@ -99,7 +99,7 @@ class GDK::Event {
   method source_device ( :$raw = False ) is rw is also<source-device> {
     Proxy.new(
       FETCH => sub ($) {
-        my $d = gdk_event_get_source_device($!e)
+        my $d = gdk_event_get_source_device($!e);
 
         $d ??
           ( $raw ?? $d !! GDK::Device.new($d) )
@@ -123,41 +123,44 @@ class GDK::Event {
 
   # Custom method.
   method get_typed_event is also<get-typed-event> {
-    cast($!e, do given $!e.type {
-
-      when GDK_MOTION_NOTIFY       { GdkEventMotion }
-      when GDK_EXPOSE              { GdkEventExpose }
-      when GDK_BUTTON_PRESS        |
-           GDK_2BUTTON_PRESS       |
-           GDK_DOUBLE_BUTTON_PRESS |
-           GDK_3BUTTON_PRESS       |
-           GDK_TRIPLE_BUTTON_PRESS |
-           GDK_BUTTON_RELEASE      { GdkEventButton }
-      when GDK_KEY_PRESS           |
-           GDK_KEY_RELEASE         { GdkEventKey }
-      when GDK_ENTER_NOTIFY        |
-           GDK_LEAVE_NOTIFY        { GdkEventCrossing  }
-           GDK_FOCUS_CHANGE        { GdkEventFocus     }
-      when GDK_CONFIGURE           { GdkEventConfigure }
-      when GDK_MAP                 |
-           GDK_UNMAP               |
-           GDK_PROPERTY_NOTIFY     { GdkEventProperty }
-      when GDK_SELECTION_CLEAR     |
-           GDK_SELECTION_REQUEST   |
-           GDK_SELECTION_NOTIFY    { GdkEventSelection }
-      when GDK_PROXIMITY_IN        |
-           GDK_PROXIMITY_OUT       { GdkEventProximity }
-      when GDK_DRAG_ENTER          |
-           GDK_DRAG_LEAVE          |
-           GDK_DRAG_MOTION         |
-           GDK_DRAG_STATUS         |
-           GDK_DROP_START          |
-           GDK_DROP_FINISHED       { GdkEventDnD }
-      when GDK_SCROLL              { GdkEventScroll }
-      when GDK_WINDOW_STATE        { GdkEventWindowState }
-      when GDK_SETTING             { GdkEventSetting }
-      when GDK_OWNER_CHANGE        { GdkEventOwnerChange }
-      when GDK_GRAB_BROKEN         { GdkEventGrabBroken }
+    cast(
+      $!e,
+      do given $!e.type {
+        when GDK_MOTION_NOTIFY       { GdkEventMotion }
+        when GDK_EXPOSE              { GdkEventExpose }
+        when GDK_BUTTON_PRESS        |
+             GDK_2BUTTON_PRESS       |
+             GDK_DOUBLE_BUTTON_PRESS |
+             GDK_3BUTTON_PRESS       |
+             GDK_TRIPLE_BUTTON_PRESS |
+             GDK_BUTTON_RELEASE      { GdkEventButton }
+        when GDK_KEY_PRESS           |
+             GDK_KEY_RELEASE         { GdkEventKey }
+        when GDK_ENTER_NOTIFY        |
+             GDK_LEAVE_NOTIFY        { GdkEventCrossing  }
+        when GDK_FOCUS_CHANGE        { GdkEventFocus     }
+        when GDK_CONFIGURE           { GdkEventConfigure }
+        when GDK_MAP                 |
+             GDK_UNMAP               |
+             GDK_PROPERTY_NOTIFY     { GdkEventProperty }
+        when GDK_SELECTION_CLEAR     |
+             GDK_SELECTION_REQUEST   |
+             GDK_SELECTION_NOTIFY    { GdkEventSelection }
+        when GDK_PROXIMITY_IN        |
+             GDK_PROXIMITY_OUT       { GdkEventProximity }
+        when GDK_DRAG_ENTER          |
+             GDK_DRAG_LEAVE          |
+             GDK_DRAG_MOTION         |
+             GDK_DRAG_STATUS         |
+             GDK_DROP_START          |
+             GDK_DROP_FINISHED       { GdkEventDnD }
+        when GDK_SCROLL              { GdkEventScroll }
+        when GDK_WINDOW_STATE        { GdkEventWindowState }
+        when GDK_SETTING             { GdkEventSetting }
+        when GDK_OWNER_CHANGE        { GdkEventOwnerChange }
+        when GDK_GRAB_BROKEN         { GdkEventGrabBroken }
+      }
+    );
   }
 
   # ↓↓↓↓ METHODS ↓↓↓↓
@@ -193,12 +196,12 @@ class GDK::Event {
     gdk_events_get_distance($!e, $event2, $d);
   }
 
-  method pending {
-    gdk_events_pending($!e);
+  method pending (GDK::Event:U) {
+    gdk_events_pending();
   }
 
-  method get {
-    gdk_event_get($!e);
+  method get (GDK::Event:U) {
+    gdk_event_get();
   }
 
   method get_axis (
@@ -342,16 +345,18 @@ class GDK::Event {
     gdk_event_is_scroll_stop_event($!e);
   }
 
-  method peek {
-    gdk_event_peek($!e);
+  method peek (GDK::Event:U) {
+    gdk_event_peek();
   }
 
   method put {
     gdk_event_put($!e);
   }
 
-  method request_motions is also<request-motions> {
-    gdk_event_request_motions($!e);
+  method request_motions (GDK::Event:U: GdkEventMotion $motion)
+    is also<request-motions>
+  {
+    gdk_event_request_motions($motion);
   }
 
   method sequence_get_type is also<sequence-get-type> {

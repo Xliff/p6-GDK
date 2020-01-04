@@ -45,7 +45,7 @@ class GDK::Selection  {
     GdkAtom $selection,
     :$raw = False
   ) {
-    my $w = gdk_selection_owner_get_for_display($display, $selection)
+    my $w = gdk_selection_owner_get_for_display($display, $selection);
 
     $w ??
       ( $raw ?? $w !! GDK::Window.new($w) )
@@ -94,7 +94,7 @@ class GDK::Selection  {
     my $rc = gdk_selection_property_get($requestor, $da, $pt, $pf);
 
     ($data, $prop_type, $prop_format) =
-      ($da[0] ?? CStringArrayToArray($da[0], $pt, $pf);
+      ($da[0] ?? CStringArrayToArray($da[0]) !! Nil, $pt, $pf);
     ($rc, $data, $prop_type, $prop_format);
   }
 

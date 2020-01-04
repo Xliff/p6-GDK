@@ -70,7 +70,7 @@ sub gdk_display_get_device_manager (GdkDisplay $display)
   { * }
 
 sub gdk_display_get_event (GdkDisplay $display)
-  returns GdkEvent
+  returns GdkEventAny
   is native(gdk)
   is export
   { * }

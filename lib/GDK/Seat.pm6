@@ -63,7 +63,7 @@ class GDK::Seat {
   }
 
   method get_display (:$raw = False) is also<get-display display> {
-    my $d = gdk_seat_get_display($!s)
+    my $d = gdk_seat_get_display($!s);
 
     $d ??
       ( $raw ?? $d !! GDK::Display.new($d) )
@@ -72,10 +72,10 @@ class GDK::Seat {
   }
 
   method get_keyboard (:$raw = False) is also<get-keyboard keyboard> {
-    my $dev = gdk_seat_get_keyboard($!s)
+    my $dev = gdk_seat_get_keyboard($!s);
 
     $dev ??
-      ( $raw ?? $d !! GDK::Device.new($dev) )
+      ( $raw ?? $dev !! GDK::Device.new($dev) )
       !!
       Nil;
   }
@@ -84,7 +84,7 @@ class GDK::Seat {
     my $dev = gdk_seat_get_pointer($!s);
 
     $dev ??
-      ( $raw ?? $d !! GDK::Device.new($dev) )
+      ( $raw ?? $dev !! GDK::Device.new($dev) )
       !!
       Nil;
   }

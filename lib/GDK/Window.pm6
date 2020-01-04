@@ -407,7 +407,7 @@ class GDK::Window {
   multi method coords_from_parent (Num() $parent_x, Num() $parent_y) {
     samewith($parent_x, $parent_y, $, $);
   }
-  method coords_from_parent (
+  multi method coords_from_parent (
     Num() $parent_x,
     Num() $parent_y,
     $x is rw,
@@ -423,7 +423,13 @@ class GDK::Window {
     is also<coords-to-parent>
   { * }
 
-  method coords_to_parent (
+  multi method coords_to_parent (
+    Num() $x,
+    Num() $y
+  ) {
+    samewith($x, $y, $, $);
+  }
+  multi method coords_to_parent (
     Num() $x,
     Num() $y,
     $parent_x is rw,
@@ -610,11 +616,11 @@ class GDK::Window {
     GdkDevice() $device,
     $x    is rw,
     $y    is rw,
-    $mask is rw             # GdkModifierType $mask
+    $mask is rw,            # GdkModifierType $mask
     :$raw = False
   ) {
     my guint $m = 0;
-    my gdouble ($xx, $yy) = 0e0 xx 2
+    my gdouble ($xx, $yy) = 0e0 xx 2;
     my $w = gdk_window_get_device_position_double(
       $!window, $device, $xx, $yy, $m
     );
@@ -646,7 +652,9 @@ class GDK::Window {
       Nil;
   }
 
-  method get_effective_toplevel is also<get-effective-toplevel> {
+  method get_effective_toplevel (:$raw = False)
+    is also<get-effective-toplevel>
+  {
     my $w = gdk_window_get_effective_toplevel($!window);
 
     $w ??
@@ -673,7 +681,7 @@ class GDK::Window {
   multi method get_geometry {
     samewith($, $, $, $)
   }
-  method get_geometry (
+  multi method get_geometry (
     $x      is rw,
     $y      is rw,
     $width  is rw,

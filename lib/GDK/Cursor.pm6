@@ -93,7 +93,7 @@ class GDK::Cursor {
     GdkCursorTypeEnum( gdk_cursor_get_cursor_type($!c) );
   }
 
-  method display (:$raw = False);
+  method display (:$raw = False)
     is also<
       get-display
       get_display
@@ -108,7 +108,7 @@ class GDK::Cursor {
   }
 
   method get_image (:$raw = False) is also<get-image> {
-    my $image = gdk_cursor_get_image($!c)
+    my $image = gdk_cursor_get_image($!c);
 
     $image ??
       ( $raw ?? $image !! GDK::Pixbuf($image) )

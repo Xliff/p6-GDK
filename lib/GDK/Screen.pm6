@@ -227,7 +227,7 @@ class GDK::Screen {
     return $wl if $glist;
 
     $wl = GLib::GList.new($wl) but GList::Roles::ListData[GdkWindow];
-    $raw ?? $wl.Array ?? $wl.Array.map({ ::('GDK::Window').new($_) });
+    $raw ?? $wl.Array !! $wl.Array.map({ ::('GDK::Window').new($_) });
   }
 
   method get_type is also<get-type> {

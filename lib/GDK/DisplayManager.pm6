@@ -74,7 +74,7 @@ class GDK::DisplayManager {
   method list_displays (:$glist = False, :$raw = False)
     is also<list-displays>
   {
-    my $dl = gdk_display_manager_list_displays;
+    my $dl = gdk_display_manager_list_displays($!dm);
 
     return Nil unless $dl;
     return $dl if $glist;
@@ -85,11 +85,11 @@ class GDK::DisplayManager {
     $raw ?? $dl.Array !! $dl.Array.map({ GDK::Display.new($_) });
   }
 
-  method open_display (Str() $name) is also<open-display> {
+  method open_display (Str() $name, :$raw = False) is also<open-display> {
     my $display = gdk_display_manager_open_display($!dm, $name);
 
     $display ??
-      ( $raw ?? $display ?? GDK::Display.new($display) )
+      ( $raw ?? $display !! GDK::Display.new($display) )
       !!
       Nil;
   }

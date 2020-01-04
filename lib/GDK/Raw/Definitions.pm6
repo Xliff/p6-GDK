@@ -12,12 +12,16 @@ unit package GDK::Raw::Definitions;
 # Number of times I've had to force compile the whole project.
 constant forced = 0;
 
+constant gdk        is export = 'gdk-2.0',v0;
+constant gdk-pixbuf is export = 'gdk-pixbuf-2.0',v0;
+
 constant GDK_MAX_TIMECOORD_AXES is export = 128;
 
 constant cairo_t                        is export := Cairo::cairo_t;
 constant cairo_format_t                 is export := Cairo::cairo_format_t;
 constant cairo_pattern_t                is export := Cairo::cairo_pattern_t;
 constant cairo_region_t                 is export := Pointer;
+constant cairo_surface_t                is export := Cairo::cairo_surface_t;
 
 our subset CairoContext is export of Mu
   where Cairo::cairo_t | Cairo::Context;
@@ -30,10 +34,6 @@ constant GdkPixbufSaveFunc              is export := Pointer;
 constant GdkSeatGrabPrepareFunc         is export := Pointer;
 constant GdkWindowChildFunc             is export := Pointer;
 constant GdkWindowInvalidateHandlerFunc is export := Pointer;
-constant GdkWMFunction                  is export := Pointer;
-
-class cairo_font_options_t   is repr('CPointer') is export does GLib::Roles::Pointers { }
-class cairo_surface_t        is repr('CPointer') is export does GLib::Roles::Pointers { }
 
 # --- GDK TYPES ---
 class GdkAppLaunchContext    is repr('CPointer') is export does GLib::Roles::Pointers { }

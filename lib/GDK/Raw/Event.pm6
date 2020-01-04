@@ -17,7 +17,11 @@ sub gdk_event_free (GdkEvent $event)
   is export
 { * }
 
-sub gdk_events_get_angle (GdkEvent $event1, GdkEvent $event2, gdouble $angle)
+sub gdk_events_get_angle (
+  GdkEvent $event1,
+  GdkEvent $event2,
+  gdouble $angle
+)
   returns uint32
   is native(gdk)
   is export
@@ -190,7 +194,7 @@ sub gdk_event_get_window (GdkEvent $event)
 { * }
 
 sub gdk_event_handler_set (
-  &handler (GdkEventAny, Pointer),
+  &handler (GdkEvent, Pointer),
   gpointer $data,
   GDestroyNotify $notify
 )

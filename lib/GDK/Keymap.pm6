@@ -103,7 +103,7 @@ class GDK::Keymap {
     $n_entries = $ne;
     $keys = do if $keys[0] {
       my $k = GLib::Roles::TypedBuffer[GdkKeymapKey].new($keys[0]);
-      $k.setSize($n);
+      $k.setSize($ne);
       $k.Array;
     } else {
       Nil;
@@ -112,7 +112,7 @@ class GDK::Keymap {
     (
       $rc,
       $keys,
-      $kvals[0] ?? CArrayToArray($kvals[0]) !! Nil
+      $keyvals[0] ?? CArrayToArray($keyvals[0]) !! Nil
     );
   }
 
@@ -137,7 +137,7 @@ class GDK::Keymap {
     my gint $nk = 0;
     my $rc = gdk_keymap_get_entries_for_keyval($!km, $kv, $keys, $nk);
 
-    $n_keys = $nk
+    $n_keys = $nk;
     $keys = do if $keys[0] {
       my $k = GLib::Roles::TypedBuffer[GdkKeymapKey].new($keys[0]);
       $k.setSize($nk);
@@ -152,7 +152,7 @@ class GDK::Keymap {
   method get_modifier_mask (Int() $intent) is also<get-modifier-mask> {
     my guint $i = $intent;
 
-    GdkModfierMaskEnum( gdk_keymap_get_modifier_mask($!km, $i) );
+    GdkModifierTypeEnum( gdk_keymap_get_modifier_mask($!km, $i) );
   }
 
   method get_modifier_state is also<get-modifier-state> {
@@ -272,12 +272,11 @@ class GDK::Keymap {
   ) {
     my gint ($g, $eg, $l) = ($group, 0, 0);
     my guint ($hk, $s, $kv, $cm) = ($hardware_keycode, $state, 0, 0);
+    my &func = &gdk_keymap_translate_keyboard_state;
+    my $rc = &func($!km, $hk, $s, $g, $kv, $eg, $l, $cm);
 
-    gdk_keymap_translate_keyboard_state($!km, $hk, $s, $g, $kv, $eg, $l, $cm);
-    ($keyval, $effective_group, $level, $consumed_modifiers) =
-      ($kv, $eg, $l, $cm);
-
-    ($rc, $keyval, $effective_group, $level, $consumed_modifiers);
+    ($keyval, $effective_group, $level, $consumed) = ($kv, $eg, $l, $cm);
+    ($rc, $keyval, $effective_group, $level, $consumed);
   }
   # ↑↑↑↑ METHODS ↑↑↑↑
 

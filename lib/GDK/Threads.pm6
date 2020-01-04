@@ -6,7 +6,7 @@ use NativeCall;
 use GDK::Raw::Types;
 use GDK::Raw::Threads;
 
-use GLib::Roles::StatiClass;
+use GLib::Roles::StaticClass;
 
 class GDK::Threads {
   also does GLib::Roles::StaticClass;

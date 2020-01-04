@@ -113,7 +113,7 @@ sub infix:<eqv> (GDK::RGBA $a, GDK::RGBA $b) {
 
 sub gdk_rgba_copy (GDK::RGBA $rgba)
   returns GDK::RGBA
-  is native(gtk)
+  is native(gdk)
   is export
   { * }
 

@@ -18,7 +18,7 @@ class GDK::Visual {
   multi method new (GdkVisual $visual) {
     $visual ?? self.bless(:$visual) !! Nil;
   }
-  
+
   # ↓↓↓↓ SIGNALS ↓↓↓↓
   # ↑↑↑↑ SIGNALS ↑↑↑↑
 
@@ -50,7 +50,7 @@ class GDK::Visual {
   multi method get_blue_pixel_details {
     samewith($, $, $);
   }
-  method get_blue_pixel_details (
+  multi method get_blue_pixel_details (
     $mask      is rw,
     $shift     is rw,
     $precision is rw
@@ -104,9 +104,7 @@ class GDK::Visual {
     $mask      is rw,
     $shift     is rw,
     $precision is rw
-  )
-    is also<get-red-pixel-details>
-  {
+  ) {
     my guint32 $m = 0;
     my gint ($s, $p) = (0, 0);
 
