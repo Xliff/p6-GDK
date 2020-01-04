@@ -1,0 +1,3 @@
+prefix=GDK
+modules=GDK::Raw::Types
+backups=backup,bitbucket
