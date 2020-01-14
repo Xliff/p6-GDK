@@ -12,8 +12,8 @@ unit package GDK::Raw::Definitions;
 # Number of times I've had to force compile the whole project.
 constant forced = 1;
 
-constant gdk        is export = 'gdk-2.0',v0;
-constant gdk-pixbuf is export = 'gdk-pixbuf-2.0',v0;
+constant gdk        is export = 'gdk-3',v0;
+constant gdk-pixbuf is export = 'gdk_pixbuf_2.0',v0;
 
 constant GDK_MAX_TIMECOORD_AXES is export = 128;
 
