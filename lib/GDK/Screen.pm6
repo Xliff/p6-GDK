@@ -28,7 +28,7 @@ class GDK::Screen {
   { $!screen }
 
   method new (GdkScreen() $screen) {
-    self.bless(:$screen);
+    $screen ?? self.bless(:$screen) !! Nil
   }
 
   # ↓↓↓↓ SIGNALS ↓↓↓↓
@@ -207,6 +207,15 @@ class GDK::Screen {
 
   method get_setting (Str() $name, GValue() $value) is also<get-setting> {
     so gdk_screen_get_setting($!screen, $name, $value);
+  }
+
+  method get_size
+    is also<
+      get-size
+      size
+    >
+  {
+    (self.get_width, self.get_height);
   }
 
   method get_system_visual (:$raw = False) is also<get-system-visual> {
