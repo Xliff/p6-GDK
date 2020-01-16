@@ -16,7 +16,7 @@ class GDK::Event {
     $!e = $event;
   }
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GtkEvent

@@ -71,7 +71,7 @@ class GdkEventAny is repr('CStruct') does GLib::Roles::Pointers is export {
   has GdkWindow    $.window;
   has int8         $.send_event;
 
-  method GDK::Raw::Definitions::GdkEvent { nativecast(GdkEventAny, self) }
+  method GDK::Raw::Structs::GdkEvent { nativecast(GdkEventAny, self) }
 }
 
 constant GdkEvent is export := GdkEventAny;
@@ -89,7 +89,7 @@ class GdkEventKey is repr('CStruct') does GLib::Roles::Pointers is export {
   has uint8        $.group;
   has uint32       $.is_modifier;
 
-  method GDK::Raw::Definitions::GdkEvent { nativecast(GdkEventAny, self) }
+  method GDK::Raw::Structs::GdkEvent { nativecast(GdkEventAny, self) }
 }
 
 class GdkEventButton is repr('CStruct') does GLib::Roles::Pointers is export {
@@ -106,7 +106,7 @@ class GdkEventButton is repr('CStruct') does GLib::Roles::Pointers is export {
   has gdouble        $.x_root;
   has gdouble        $.y_root;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -122,7 +122,7 @@ class GdkEventExpose   is repr('CStruct') does GLib::Roles::Pointers is export {
   has cairo_region_t $.region;
   has int32          $.count;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -145,7 +145,7 @@ class GdkEventCrossing is repr('CStruct') does GLib::Roles::Pointers is export {
   has gboolean       $.focus;
   has guint          $.state;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -159,7 +159,7 @@ class GdkEventFocus    is repr('CStruct') does GLib::Roles::Pointers is export {
   has int8           $.send_event;
   has int16          $.in;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -176,7 +176,7 @@ class GdkEventConfigure is repr('CStruct') does GLib::Roles::Pointers is export 
   has int32          $.width;
   has int32          $.height;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -192,7 +192,7 @@ class GdkEventProperty is repr('CStruct') does GLib::Roles::Pointers is export {
   has uint32         $.time;
   has uint32         $.state;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -216,7 +216,7 @@ class GdkEventScroll is repr('CStruct') does GLib::Roles::Pointers is export {
   has gdouble            $.delta_y;
   has guint              $.is_stop;   # : 1;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -234,7 +234,7 @@ class GdkEventSelection is repr('CStruct') does GLib::Roles::Pointers is export 
   has uint32         $.time;
   has GdkWindow      $.requestor;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -251,7 +251,7 @@ class GdkEventDnD is repr('CStruct') does GLib::Roles::Pointers is export {
   has int16          $.x_root;
   has int16          $.y_root;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -266,7 +266,7 @@ class GdkEventProximity is repr('CStruct') does GLib::Roles::Pointers is export 
   has uint32         $.time;
   has GdkDevice      $.device;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -281,7 +281,7 @@ class GdkEventWindowState is repr('CStruct') does GLib::Roles::Pointers is expor
   has uint32         $.changed_mask;
   has uint32         $.new_window_state;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -296,7 +296,7 @@ class GdkEventSetting is repr('CStruct') does GLib::Roles::Pointers is export {
   has uint32         $.action;
   has Str            $.name;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -314,7 +314,7 @@ class GdkEventOwnerChange is repr('CStruct') does GLib::Roles::Pointers is expor
   has uint32         $.time;
   has uint32         $.selection_time;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -336,7 +336,7 @@ class GdkEventMotion is repr('CStruct') does GLib::Roles::Pointers is export {
   has gdouble        $.x_root;
   has gdouble        $.y_root;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny
@@ -352,7 +352,7 @@ class GdkEventGrabBroken is repr('CStruct') does GLib::Roles::Pointers is export
   has gboolean       $.implicit;
   has GdkWindow      $.grab_window;
 
-  method GDK::Raw::Definitions::GdkEvent
+  method GDK::Raw::Structs::GdkEvent
     is also<
       GdkEvent
       GdkEventAny

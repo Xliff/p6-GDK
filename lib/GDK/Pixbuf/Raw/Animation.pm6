@@ -4,7 +4,7 @@ use NativeCall;
 
 use GDK::Raw::Types;
 
-unit package GDK::Pixbufs::Raw::Animation;
+unit package GDK::Pixbuf::Raw::Animation;
 
 sub gdk_pixbuf_non_anim_get_type ()
   returns GType
