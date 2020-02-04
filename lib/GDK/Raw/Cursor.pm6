@@ -2,7 +2,7 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 
 unit package GDK::Raw::Cursor;
 

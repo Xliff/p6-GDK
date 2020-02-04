@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 use GDK::Raw::Threads;
 
 use GLib::Roles::StaticClass;

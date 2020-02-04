@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 use GDK::Raw::Display;
 use GDK::Raw::X11_Display;
 use GDK::X11_Types;
@@ -25,7 +25,7 @@ class GDK::Display {
     self.disconnect-all($_) for %!signals;
   }
 
-  method GDK::Raw::Types::GdkDisplay
+  method GDK::Raw::Definitions::GdkDisplay
     is also<
       gdkdisplay
       GdkDisplay

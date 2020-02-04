@@ -3,7 +3,7 @@ use v6.c;
 use NativeCall;
 
 use GDK::RGBA;
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 
 unit package GDK::Raw::Window;
 

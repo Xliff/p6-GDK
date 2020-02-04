@@ -2,7 +2,7 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 use GDK::Raw::Main;
 
 use GLib::Roles::StaticClass;

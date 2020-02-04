@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 use GDK::Raw::Rectangle;
 
 class GDK::Rectangle {
@@ -13,7 +13,7 @@ class GDK::Rectangle {
     $!r = $rectangle;
   }
 
-  method GDK::Raw::Types::GdkRectangle
+  method GDK::Raw::Definitions::GdkRectangle
     is also<
       rectangle
       GdkRectangle

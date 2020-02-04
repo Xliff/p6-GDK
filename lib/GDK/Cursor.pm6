@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 use GDK::Raw::Cursor;
 
 use GDK::Display;
@@ -16,7 +16,7 @@ class GDK::Cursor {
     $!c = $cursor
   }
 
-  method GDK::Raw::Types::GdkCursor
+  method GDK::Raw::Definitions::GdkCursor
     is also<
       gdkcursor
       GdkCursor

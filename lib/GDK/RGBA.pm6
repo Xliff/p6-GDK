@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 
 class GDK::RGBA is repr<CStruct> is export { ... }
 
@@ -19,7 +19,7 @@ class GDK::RGBA {
 
   submethod BUILD (:$!red, :$!green, :$!blue, :$!alpha) { }
 
-  method GDK::Raw::Types::GdkRGBA
+  method GDK::Raw::Definitions::GdkRGBA
   { self }
 
   multi method new (

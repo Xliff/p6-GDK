@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 use GDK::Raw::FrameClock;
 
 use GLib::Roles::Signals::Generic;
@@ -21,7 +21,7 @@ class GDK::FrameClock  {
     self.disconnect-all($_) for %!signals;
   }
 
-  method GDK::Raw::Types::GdkFrameClock {
+  method GDK::Raw::Definitions::GdkFrameClock {
     $!fc;
   }
 

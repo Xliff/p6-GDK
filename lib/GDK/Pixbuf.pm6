@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 use GDK::Raw::Pixbuf;
 
 use GDK::Pixbuf::Transforms;
@@ -24,7 +24,7 @@ class GDK::Pixbuf {
     self.roleInit-Object;
   }
 
-  method GDK::Raw::Types::GdkPixbuf
+  method GDK::Raw::Definitions::GdkPixbuf
     is also<
       GdkPixbuf
       pixbuf
