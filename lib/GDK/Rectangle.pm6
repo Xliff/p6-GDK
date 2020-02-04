@@ -13,7 +13,7 @@ class GDK::Rectangle {
     $!r = $rectangle;
   }
 
-  method GDK::Raw::Types::GdkRectangle
+  method GDK::Raw::Definitions::GdkRectangle
     is also<
       rectangle
       GdkRectangle

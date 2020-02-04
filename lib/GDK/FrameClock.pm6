@@ -21,7 +21,7 @@ class GDK::FrameClock  {
     self.disconnect-all($_) for %!signals;
   }
 
-  method GDK::Raw::Types::GdkFrameClock {
+  method GDK::Raw::Definitions::GdkFrameClock {
     $!fc;
   }
 

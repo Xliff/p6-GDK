@@ -25,7 +25,7 @@ class GDK::Display {
     self.disconnect-all($_) for %!signals;
   }
 
-  method GDK::Raw::Types::GdkDisplay
+  method GDK::Raw::Definitions::GdkDisplay
     is also<
       gdkdisplay
       GdkDisplay

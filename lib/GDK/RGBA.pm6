@@ -19,7 +19,7 @@ class GDK::RGBA {
 
   submethod BUILD (:$!red, :$!green, :$!blue, :$!alpha) { }
 
-  method GDK::Raw::Types::GdkRGBA
+  method GDK::Raw::Definitions::GdkRGBA
   { self }
 
   multi method new (

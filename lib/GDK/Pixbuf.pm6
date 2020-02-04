@@ -24,7 +24,7 @@ class GDK::Pixbuf {
     self.roleInit-Object;
   }
 
-  method GDK::Raw::Types::GdkPixbuf
+  method GDK::Raw::Definitions::GdkPixbuf
     is also<
       GdkPixbuf
       pixbuf

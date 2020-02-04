@@ -16,7 +16,7 @@ class GDK::Cursor {
     $!c = $cursor
   }
 
-  method GDK::Raw::Types::GdkCursor
+  method GDK::Raw::Definitions::GdkCursor
     is also<
       gdkcursor
       GdkCursor
