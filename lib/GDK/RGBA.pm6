@@ -19,6 +19,7 @@ class GDK::RGBA {
 
   submethod BUILD (:$!red, :$!green, :$!blue, :$!alpha) { }
 
+  # Do NOT alias, as the struct and the class are the same!
   method GDK::Raw::Definitions::GdkRGBA
   { self }
 

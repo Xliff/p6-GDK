@@ -24,6 +24,10 @@ class GDK::Monitor {
     self.disconnect-all($_) for %!signals;
   }
 
+  method GDK::Raw::Definitions::GdkMonitor
+    is also<GdkMonitor>
+  { $!mon }
+
   # ↓↓↓↓ SIGNALS ↓↓↓↓
 
   # Is originally:

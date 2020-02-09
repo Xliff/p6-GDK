@@ -21,9 +21,9 @@ class GDK::FrameClock  {
     self.disconnect-all($_) for %!signals;
   }
 
-  method GDK::Raw::Definitions::GdkFrameClock {
-    $!fc;
-  }
+  method GDK::Raw::Definitions::GdkFrameClock
+    is also<GdkFrameClock>
+  { $!fc }
 
   method new (GdkFrameClock $clock) {
     $clock ?? self.bless(:$clock) !! Nil;
@@ -127,7 +127,7 @@ class GDK::FrameClock  {
 
   method get_type is also<get-type> {
     state ($n, $t);
-    
+
     unstable_get_type( self.^name, &gdk_frame_clock_get_type, $n, $t );
   }
 

@@ -30,6 +30,10 @@ class GDK::Device {
     self.disconnect-all($_) for %!signals, %!signals-device;
   }
 
+  method GDK::Raw::Definitions::GdkDevice
+    is also<GdkDevice>
+  { $!d }
+
   method new(Ancestry $device) {
     my $o = self.bless(:$device);
     $o.upref;

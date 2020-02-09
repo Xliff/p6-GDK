@@ -20,6 +20,10 @@ class GDK::AppLaunchContext {
     $!prop = nativecast(GObject, $!alc = $context);
   }
 
+  method GDK::Raw::Definitions::GdkAppLaunchContext
+    is also<GdkAppLaunchContext>
+  { $!alc }
+
   multi method new (GdkAppLaunchContext $context) {
     $context ?? self.bless(:$context) !! Nil;
   }

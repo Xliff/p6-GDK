@@ -15,6 +15,10 @@ class GDK::Visual {
     $!vis = $visual;
   }
 
+  method GDK::Raw::Definitions::GdkVisual
+    is also<GdkVisual>
+  { $!vis }
+
   multi method new (GdkVisual $visual) {
     $visual ?? self.bless(:$visual) !! Nil;
   }

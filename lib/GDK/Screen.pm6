@@ -24,7 +24,10 @@ class GDK::Screen {
   }
 
   method GDK::Raw::Definitions::GdkScreen
-    is also<screen>
+    is also<
+      screen
+      GdkScreen
+    >
   { $!screen }
 
   method new (GdkScreen() $screen) {

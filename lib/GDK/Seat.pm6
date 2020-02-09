@@ -20,6 +20,10 @@ class GDK::Seat {
     $!s = $seat
   }
 
+  method GDK::Raw::Definitions::GdkSeat
+    is also<GdkSeat>
+  { $!s }
+
   # ↓↓↓↓ SIGNALS ↓↓↓↓
   # Is originally:
   # GdkSeat, GdkDevice, gpointer --> void

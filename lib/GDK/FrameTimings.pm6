@@ -13,6 +13,10 @@ class GDK::FrameTimings {
     $!ft = $timings;
   }
 
+  method GDK::Raw::Definitions::GdkFrameTimings
+    is also<GdkFrameTimings>
+  { $!ft }
+
   # ↓↓↓↓ SIGNALS ↓↓↓↓
   # ↑↑↑↑ SIGNALS ↑↑↑↑
 
@@ -51,7 +55,7 @@ class GDK::FrameTimings {
 
   method get_type is also<get-type> {
     state ($n, $t);
-    
+
     unstable_get_type( self.^name, &gdk_frame_timings_get_type, $n, $t );
   }
 
