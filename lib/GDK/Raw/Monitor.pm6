@@ -2,8 +2,7 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Definitions;
-use GLib::Value;
+use GDK::Raw::Types;
 
 unit package GDK::Raw::Monitor;
 

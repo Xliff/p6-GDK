@@ -3,7 +3,7 @@ use v6.c;
 use NativeCall;
 
 use GDK::RGBA;
-use GDK::Raw::Definitions;
+use GDK::Raw::Types;
 
 unit package GDK::Raw::Window;
 
@@ -398,8 +398,8 @@ sub gdk_window_get_root_coords (
   { * }
 
 sub gdk_window_get_root_origin (
-  GdkWindow $window, 
-  gint $x is rw, 
+  GdkWindow $window,
+  gint $x is rw,
   gint $y is rw
 )
   is native(gdk)

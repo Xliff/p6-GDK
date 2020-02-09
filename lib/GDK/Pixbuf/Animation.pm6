@@ -4,7 +4,7 @@ use Method::Also;
 
 use NativeCall;
 
-use GDK::Raw::Definitions;
+use GDK::Raw::Types;
 use GDK::Pixbuf::Raw::Animation;
 
 use GDK::Pixbuf::Animation::Iter;

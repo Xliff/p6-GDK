@@ -5,12 +5,10 @@ use NativeCall;
 
 use Cairo;
 
-use GLib::Raw::Subs;
-use GDK::Raw::Definitions;
+use GDK::Raw::Types;
 use GDK::Raw::Window;
 use GDK::Raw::X11_Window;
-
-use GDK::X11_Types;
+use GDK::Raw::X11_Types;
 
 use GDK::Cursor;
 use GDK::RGBA;

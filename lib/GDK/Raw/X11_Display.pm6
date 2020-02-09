@@ -2,14 +2,14 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Definitions;
-use GDK::X11_Types;
+use GTK::Raw::Types;
+use GDK::Raw::X11_Types;
 
 package GDK::Raw::X11_Display {
-  
+
   # From x11/gdkx11window.h
   sub gdk_x11_window_foreign_new_for_display (
-    GdkDisplay $display, 
+    GdkDisplay $display,
     X11Window $X11Window
   )
     returns GdkWindow
@@ -34,8 +34,8 @@ package GDK::Raw::X11_Display {
     { * }
 
   sub gdk_x11_register_standard_event_type (
-    GdkDisplay $display, 
-    gint $event_base, 
+    GdkDisplay $display,
+    gint $event_base,
     gint $n_events
   )
     is native(gdk)
@@ -71,8 +71,8 @@ package GDK::Raw::X11_Display {
     { * }
 
   sub gdk_x11_display_set_cursor_theme (
-    GdkDisplay $display, 
-    Str $theme, 
+    GdkDisplay $display,
+    Str $theme,
     gint $size
   )
     is native(gdk)
@@ -96,11 +96,11 @@ package GDK::Raw::X11_Display {
     { * }
 
   sub gdk_x11_display_set_startup_notification_id (
-    GdkDisplay $display, 
+    GdkDisplay $display,
     Str $startup_id
   )
     is native(gdk)
     is export
     { * }
-    
+
   }

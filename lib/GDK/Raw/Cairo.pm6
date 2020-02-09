@@ -3,8 +3,8 @@ use v6.c;
 use Cairo;
 use NativeCall;
 
+use GDK::Raw::Types;
 use GDK::RGBA;
-use GDK::Raw::Definitions;
 
 unit package GDK::Raw::Cairo;
 

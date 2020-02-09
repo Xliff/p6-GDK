@@ -3,7 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GDK::Raw::Definitions;
+use GDK::Raw::Types;
 use GDK::Raw::DragContext;
 
 use GLib::Roles::Signals::Generic;
@@ -145,7 +145,7 @@ class GDK::DragContext {
 
   method get_type is also<get-type> {
     state ($n, $t);
-    
+
     unstable_get_type( self.^name, ^gdk_drag_context_get_type, $n, $t );
   }
 

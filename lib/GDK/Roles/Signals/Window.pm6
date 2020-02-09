@@ -3,8 +3,8 @@ use v6.c;
 use NativeCall;
 
 use Cairo;
-use GDK::Raw::Definitions;
 use GLib::Raw::ReturnedValue;
+use GDK::Raw::Types;
 
 role GDK::Roles::Signals::Window {
   has %!signals-window;

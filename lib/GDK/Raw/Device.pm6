@@ -2,9 +2,9 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Definitions;
+use GDK::Raw::Types;
 
-unit package gdk::Raw::Device;
+unit package GDK::Raw::Device;
 
 sub gdk_device_free_history (
   uint32 $events,                 # GdkTimeCoord $events,

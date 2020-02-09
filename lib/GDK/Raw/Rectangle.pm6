@@ -2,7 +2,7 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Definitions;
+use GDK::Raw::Types;
 
 unit package GDK::Raw::Rectangle;
 

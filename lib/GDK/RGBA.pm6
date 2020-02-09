@@ -3,6 +3,8 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
+use GLib::Raw::Definitions;
+use GLib::Raw::Subs;
 use GDK::Raw::Definitions;
 
 class GDK::RGBA is repr<CStruct> is export { ... }

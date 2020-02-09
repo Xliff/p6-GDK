@@ -2,7 +2,7 @@ use v6.c;
 
 use Method::Also;
 
-use GDK::Raw::Definitions;
+use GDK::Raw::Types;
 use GDK::Pixbuf::Raw::Animation;
 
 class GDK::Pixbuf::Animation::Iter {
