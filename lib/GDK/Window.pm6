@@ -6,7 +6,7 @@ use NativeCall;
 use Cairo;
 
 use GLib::Raw::Subs;
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 use GDK::Raw::Window;
 use GDK::Raw::X11_Window;
 

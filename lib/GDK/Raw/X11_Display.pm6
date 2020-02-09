@@ -2,7 +2,7 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 use GDK::X11_Types;
 
 package GDK::Raw::X11_Display {

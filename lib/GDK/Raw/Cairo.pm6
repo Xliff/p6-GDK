@@ -4,7 +4,7 @@ use Cairo;
 use NativeCall;
 
 use GDK::RGBA;
-use GDK::Raw::Types;
+use GDK::Raw::Definitions;
 
 unit package GDK::Raw::Cairo;
 
