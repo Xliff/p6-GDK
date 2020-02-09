@@ -128,13 +128,18 @@ class GDK::Window {
     );
   }
 
-  method offscreen_window_embedder
+  method offscreen_window_embedder (:$raw = False)
     is rw
     is also<offscreen-window-embedder>
   {
     Proxy.new(
       FETCH => sub ($) {
-        GDK::Window.new( gdk_offscreen_window_get_embedder($!window) );
+        my $w = gdk_offscreen_window_get_embedder($!window);
+
+        $w ??
+          ( $raw ?? $w !! GDK::Window.new($w) )
+          !!
+          Nil;
       },
       STORE => sub ($, GdkWindow() $embedder is copy) {
         gdk_offscreen_window_set_embedder($!window, $embedder);
@@ -184,7 +189,7 @@ class GDK::Window {
   method fullscreen_mode is rw is also<fullscreen-mode> {
     Proxy.new(
       FETCH => sub ($) {
-        GdkFullscreenMode( gdk_window_get_fullscreen_mode($!window) );
+        GdkFullscreenModeEnum( gdk_window_get_fullscreen_mode($!window) );
       },
       STORE => sub ($, Int() $mode is copy) {
         my guint $m = $mode;
@@ -194,10 +199,15 @@ class GDK::Window {
     );
   }
 
-  method group is rw {
+  method group (:$raw = False) is rw {
     Proxy.new(
       FETCH => sub ($) {
-        GDK::Window.new( gdk_window_get_group($!window) );
+        my $w = gdk_window_get_group($!window);
+
+        $w ??
+          ( $raw ?? $w !! GDK::Window.new($w) )
+          !!
+          Nil;
       },
       STORE => sub ($, GdkWindow() $leader is copy) {
         gdk_window_set_group($!window, $leader);

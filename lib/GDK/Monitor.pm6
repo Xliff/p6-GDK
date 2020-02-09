@@ -8,6 +8,7 @@ use GDK::Raw::Monitor;
 
 use GLib::Value;
 use GDK::Rectangle;
+use GDK::Display;
 
 use GLib::Roles::Signals::Generic;
 

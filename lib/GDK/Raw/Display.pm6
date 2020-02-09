@@ -256,7 +256,7 @@ sub gdk_display_store_clipboard (
   GdkDisplay $display,
   GdkWindow $clipboard_window,
   guint32 $time_,
-  GdkAtom $targets,
+  CArray[GdkAtom] $targets,
   gint $n_targets
 )
   is native(gdk)

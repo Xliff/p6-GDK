@@ -126,24 +126,44 @@ class GDK::Display {
     gdk_display_get_default_cursor_size($!d);
   }
 
-  method get_default_group is also<get-default-group> {
-    gdk_display_get_default_group($!d);
+  method get_default_group (:$raw = False) is also<get-default-group> {
+    my $gw = gdk_display_get_default_group($!d);
+
+    $gw ??
+      ( $raw ?? $gw !! ::('GDK::Window').new($gw) )
+      !!
+      Nil;
   }
 
-  method get_default_screen is also<get-default-screen> {
-    GDK::Screen.new( gdk_display_get_default_screen($!d) );
+  method get_default_screen (:$raw = False) is also<get-default-screen> {
+    my $s = gdk_display_get_default_screen($!d);
+
+    $s ??
+      ( $raw ?? $s !! ::('GDK::Screen').new($s) )
+      !!
+      Nil;
   }
 
-  method get_default_seat is also<get-default-seat> {
-    gdk_display_get_default_seat($!d);
+  method get_default_seat (:$raw = False) is also<get-default-seat> {
+    my $seat = gdk_display_get_default_seat($!d);
+
+    $seat ??
+      ( $raw ?? $seat !! ::('GDK::Seat').new($seat) )
+      !!
+      Nil;
   }
 
   # method get_device_manager is also<get-device-manager> {
   #   gdk_display_get_device_manager($!d);
   # }
 
-  method get_event is also<get-event> {
-    gdk_display_get_event($!d);
+  method get_event (:$raw = False) is also<get-event> {
+    my $e = gdk_display_get_event($!d);
+
+    $e ??
+      ( $raw ?? $e !! GDK::Event.new($e) )
+      !!
+      Nil;
   }
 
   method get_maximal_cursor_size (Int() $width, Int() $height)
@@ -154,24 +174,41 @@ class GDK::Display {
     gdk_display_get_maximal_cursor_size($!d, $w, $h);
   }
 
-  method get_monitor (Int() $monitor_num) is also<get-monitor> {
+  method get_monitor (Int() $monitor_num, :$raw = False)
+    is also<get-monitor>
+  {
     my gint $m = $monitor_num;
 
-    gdk_display_get_monitor($!d, $m);
+    my $mon = gdk_display_get_monitor($!d, $m);
+
+    $mon ??
+      ( $raw ?? $mon !! ::('GDK::Monitor').new($mon) )
+      !!
+      Nil;
   }
 
-  method get_monitor_at_point (Int() $x, Int() $y)
+  method get_monitor_at_point (Int() $x, Int() $y, :$raw = False)
     is also<get-monitor-at-point>
   {
     my gint ($xx, $yy) = ($x, $y);
 
-    gdk_display_get_monitor_at_point($!d, $xx, $yy);
+    my $mon = gdk_display_get_monitor_at_point($!d, $xx, $yy);
+
+    $mon ??
+      ( $raw ?? $mon !! ::('GDK::Monitor').new($mon) )
+      !!
+      Nil;
   }
 
-  method get_monitor_at_window (GdkWindow() $window)
+  method get_monitor_at_window (GdkWindow() $window, :$raw = False)
     is also<get-monitor-at-window>
   {
-    gdk_display_get_monitor_at_window($!d, $window);
+    my $m = gdk_display_get_monitor_at_window($!d, $window);
+
+    $m ??
+      ( $raw ?? $m !! ::('GDK::Monitor').new($m) )
+      !!
+      Nil;
   }
 
   method get_n_monitors is also<get-n-monitors> {
@@ -200,8 +237,13 @@ class GDK::Display {
   #   gdk_display_get_pointer($!d, $screen, $xx, $yy, $m);
   # }
 
-  method get_primary_monitor is also<get-primary-monitor> {
-    gdk_display_get_primary_monitor($!d);
+  method get_primary_monitor (:$raw = False) is also<get-primary-monitor> {
+    my $m = gdk_display_get_primary_monitor($!d);
+
+    $m ??
+      ( $raw ?? $m !! ::('GDK::Monitor').new($m) )
+      !!
+      Nil;
   }
 
   method get_type is also<get-type> {
@@ -219,11 +261,11 @@ class GDK::Display {
   # }
 
   method has_pending is also<has-pending> {
-    gdk_display_has_pending($!d);
+    so gdk_display_has_pending($!d);
   }
 
   method is_closed is also<is-closed> {
-    gdk_display_is_closed($!d);
+    so gdk_display_is_closed($!d);
   }
 
   # method keyboard_ungrab (Int() $time) is also<keyboard-ungrab> {
@@ -236,8 +278,15 @@ class GDK::Display {
   #   gdk_display_list_devices($!d);
   # }
 
-  method list_seats is also<list-seats> {
-    gdk_display_list_seats($!d);
+  method list_seats (:$glist = False, :$raw = False) is also<list-seats> {
+    my $sl = gdk_display_list_seats($!d);
+
+    return Nil unless $sl;
+    return $sl if $glist;
+
+    $sl = GLib::GList.new($sl) but GLib::Roles::ListData[GdkSeat];
+
+    $raw ?? $sl.Array !! $sl.Array.map({ ::('GDK::Seat').new($_) });
   }
 
   method notify_startup_complete (Str() $startup_id)
@@ -246,12 +295,17 @@ class GDK::Display {
     gdk_display_notify_startup_complete($!d, $startup_id);
   }
 
-  method peek_event is also<peek-event> {
-    gdk_display_peek_event($!d);
+  method peek_event (:$raw = False) is also<peek-event> {
+    my $e = gdk_display_peek_event($!d);
+
+    $e ??
+      ( $raw ?? $e !! ::('GDK::Event').new($e) )
+      !!
+      Nil;
   }
 
   method pointer_is_grabbed is also<pointer-is-grabbed> {
-    gdk_display_pointer_is_grabbed($!d);
+    so gdk_display_pointer_is_grabbed($!d);
   }
 
   # method pointer_ungrab (guint32 $time_) is also<pointer-ungrab> {
@@ -268,63 +322,78 @@ class GDK::Display {
     gdk_display_request_selection_notification($!d, $selection);
   }
 
-  method set_double_click_distance (guint $distance)
+  method set_double_click_distance (Int() $distance)
     is also<set-double-click-distance>
   {
-    gdk_display_set_double_click_distance($!d, $distance);
+    my guint $d = $distance;
+
+    gdk_display_set_double_click_distance($!d, $d);
   }
 
-  method set_double_click_time (guint $msec) is also<set-double-click-time> {
-    gdk_display_set_double_click_time($!d, $msec);
+  method set_double_click_time (Int() $msec) is also<set-double-click-time> {
+    my guint $m = $msec;
+
+    gdk_display_set_double_click_time($!d, $m);
   }
 
-  method store_clipboard (
-    GdkWindow $clipboard_window,
-    guint32 $time,
-    GdkAtom $targets,
-    gint $n_targets
-  )
+  proto method store_clipboard (|)
     is also<store-clipboard>
-  {
-    gdk_display_store_clipboard(
-      $!d,
+  { * }
+
+  multi method store_clipboard (
+    GdkWindow() $clipboard_window,
+    Int() $time,
+    @targets,
+  ) {
+    samewith(
       $clipboard_window,
       $time,
-      $targets,
-      $n_targets
+      ArrayToCArray(GdkAtom, @targets),
+      @targets.elems
     );
+  }
+  multi method store_clipboard (
+    GdkWindow() $clipboard_window,
+    Int() $time,
+    CArray[GdkAtom] $targets,
+    Int() $n_targets
+  ) {
+    my guint $t = $time;
+    my gint $n = $n_targets;
+
+    gdk_display_store_clipboard($!d, $clipboard_window, $t, $targets, $n);
   }
 
   method supports_clipboard_persistence
     is also<supports-clipboard-persistence>
   {
-    gdk_display_supports_clipboard_persistence($!d);
+    so gdk_display_supports_clipboard_persistence($!d);
   }
 
   method supports_composite is also<supports-composite> {
-    gdk_display_supports_composite($!d);
+    so gdk_display_supports_composite($!d);
   }
 
   method supports_cursor_alpha is also<supports-cursor-alpha> {
-    gdk_display_supports_cursor_alpha($!d);
+    so gdk_display_supports_cursor_alpha($!d);
   }
 
   method supports_cursor_color is also<supports-cursor-color> {
-    gdk_display_supports_cursor_color($!d);
+    so gdk_display_supports_cursor_color($!d);
   }
 
   method supports_input_shapes is also<supports-input-shapes> {
-    gdk_display_supports_input_shapes($!d);
+    so gdk_display_supports_input_shapes($!d);
   }
 
   method supports_selection_notification
     is also<supports-selection-notification>
   {
-    gdk_display_supports_selection_notification($!d);
+    so gdk_display_supports_selection_notification($!d);
   }
 
   method supports_shapes is also<supports-shapes> {
-    gdk_display_supports_shapes($!d);
+    so gdk_display_supports_shapes($!d);
   }
 
   method sync {
