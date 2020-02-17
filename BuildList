@@ -20,7 +20,6 @@ GLib::Roles::Signals::Generic
 GLib::Roles::StaticClass
 GLib::Roles::TypedBuffer
 GLib::Value
-GTK::Raw::Types
 Method::Also
 Pango::Raw::Definitions
 Pango::Raw::Enums
