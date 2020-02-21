@@ -6,7 +6,7 @@ use Pango::Raw::Exports;
 use GIO::Raw::Exports;
 use GDK::Raw::Exports;
 
-unit package GDK::Raw::Definitions;
+unit package GDK::Raw::Types;
 
 need Cairo;
 need GLib::Raw::Definitions;
