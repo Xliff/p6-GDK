@@ -48,7 +48,7 @@ class GDK::Monitor {
   method display is rw {
     my GLib::Value $gv .= new( G_TYPE_OBJECT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('display', $gv)
         );
@@ -65,7 +65,7 @@ class GDK::Monitor {
   method geometry is rw {
     my GLib::Value $gv .= new( G_TYPE_OBJECT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('geometry', $gv)
         );
@@ -81,7 +81,7 @@ class GDK::Monitor {
   method height-mm is rw is also<height_mm> {
     my GLib::Value $gv .= new( G_TYPE_INT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('height-mm', $gv)
         );
@@ -97,7 +97,7 @@ class GDK::Monitor {
   method manufacturer is rw {
     my GLib::Value $gv .= new( G_TYPE_STRING );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('manufacturer', $gv)
         );
@@ -113,7 +113,7 @@ class GDK::Monitor {
   method model is rw {
     my GLib::Value $gv .= new( G_TYPE_STRING );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('model', $gv)
         );
@@ -129,7 +129,7 @@ class GDK::Monitor {
   method refresh-rate is rw is also<refresh_rate> {
     my GLib::Value $gv .= new( G_TYPE_INT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('refresh-rate', $gv)
         );
@@ -145,7 +145,7 @@ class GDK::Monitor {
   method scale-factor is rw is also<scale_factor> {
     my GLib::Value $gv .= new( G_TYPE_INT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('scale-factor', $gv)
         );
@@ -161,7 +161,7 @@ class GDK::Monitor {
   method subpixel-layout is rw is also<subpixel_layout> {
     my GLib::Value $gv .= new( G_TYPE_UINT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('subpixel-layout', $gv)
         );
@@ -177,7 +177,7 @@ class GDK::Monitor {
   method width-mm is rw is also<width_mm> {
     my GLib::Value $gv .= new( G_TYPE_INT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('width-mm', $gv)
         );
@@ -193,7 +193,7 @@ class GDK::Monitor {
   method workarea is rw {
     my GLib::Value $gv .= new( G_TYPE_OBJECT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('workarea', $gv)
         );

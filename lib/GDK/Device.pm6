@@ -87,7 +87,7 @@ class GDK::Device {
   method associated-device is rw is also<associated_device> {
     my GLib::Value $gv .= new( G_TYPE_OBJECT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('associated-device', $gv)
         );
@@ -103,7 +103,7 @@ class GDK::Device {
   method axes is rw {
     my GLib::Value $gv .= new( G_TYPE_UINT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('axes', $gv)
         );
@@ -119,7 +119,7 @@ class GDK::Device {
   method device-manager is rw is also<device_manager> {
     my GLib::Value $gv .= new( G_TYPE_OBJECT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('device-manager', $gv)
         );
@@ -135,7 +135,7 @@ class GDK::Device {
   method display (:$raw = False) is rw {
     my GLib::Value $gv .= new( G_TYPE_OBJECT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         self.get_display(:$raw);
       },
       STORE => -> $, $val is copy {
@@ -148,7 +148,7 @@ class GDK::Device {
   method has-cursor is rw is also<has_cursor> {
     my GLib::Value $gv .= new( G_TYPE_BOOLEAN );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('has-cursor', $gv)
         );
@@ -164,7 +164,7 @@ class GDK::Device {
   method input-mode is rw is also<input_mode> {
     my GLib::Value $gv .= new( G_TYPE_UINT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('input-mode', $gv)
         );
@@ -180,7 +180,7 @@ class GDK::Device {
   method input-source is rw is also<input_source> {
     my GLib::Value $gv .= new( G_TYPE_UINT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('input-source', $gv)
         );
@@ -196,7 +196,7 @@ class GDK::Device {
   method n-axes is rw is also<n_axes> {
     my GLib::Value $gv .= new( G_TYPE_UINT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('n-axes', $gv)
         );
@@ -212,7 +212,7 @@ class GDK::Device {
   method name is rw {
     my GLib::Value $gv .= new( G_TYPE_STRING );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('name', $gv)
         );
@@ -228,7 +228,7 @@ class GDK::Device {
   method num-touches is rw is also<num_touches> {
     my GLib::Value $gv .= new( G_TYPE_UINT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('num-touches', $gv)
         );
@@ -244,7 +244,7 @@ class GDK::Device {
   method product-id is rw is also<product_id> {
     my GLib::Value $gv .= new( G_TYPE_STRING );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('product-id', $gv)
         );
@@ -260,7 +260,7 @@ class GDK::Device {
   method seat is rw {
     my GLib::Value $gv .= new( G_TYPE_OBJECT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('seat', $gv)
         );
@@ -277,7 +277,7 @@ class GDK::Device {
   method tool is rw {
     my GLib::Value $gv .= new( G_TYPE_OBJECT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('tool', $gv)
         );
@@ -293,7 +293,7 @@ class GDK::Device {
   method type is rw {
     my GLib::Value $gv .= new( G_TYPE_UINT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('type', $gv)
         );
@@ -309,7 +309,7 @@ class GDK::Device {
   method vendor-id is rw is also<vendor_id> {
     my GLib::Value $gv .= new( G_TYPE_STRING );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('vendor-id', $gv)
         );

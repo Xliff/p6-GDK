@@ -41,7 +41,7 @@ class GDK::Event {
   # Static/Class method
   method show_events is rw is also<show-events> {
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         gdk_get_show_events()
       },
       STORE => -> $, Int() $val {
@@ -123,9 +123,10 @@ class GDK::Event {
 
   # Custom method.
   method get_typed_event is also<get-typed-event> {
+    say GdkEventTypeEnum($!e.type);
+
     cast(
-      $!e,
-      do given $!e.type {
+      do given GdkEventTypeEnum($!e.type) {
         when GDK_MOTION_NOTIFY       { GdkEventMotion }
         when GDK_EXPOSE              { GdkEventExpose }
         when GDK_BUTTON_PRESS        |
@@ -159,7 +160,8 @@ class GDK::Event {
         when GDK_SETTING             { GdkEventSetting }
         when GDK_OWNER_CHANGE        { GdkEventOwnerChange }
         when GDK_GRAB_BROKEN         { GdkEventGrabBroken }
-      }
+      },
+      $!e
     );
   }
 

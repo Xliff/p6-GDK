@@ -392,7 +392,7 @@ class GdkWindowAttr is repr('CStruct') does GLib::Roles::Pointers is export {
 
   method title is rw {
     Proxy.new:
-      FETCH => -> $ { $!title },
+      FETCH => sub ($) { $!title },
       STORE => -> $, Str() $new {
         self.^attributes[0].set_value(self, $new)
       }
@@ -400,7 +400,7 @@ class GdkWindowAttr is repr('CStruct') does GLib::Roles::Pointers is export {
 
   method visual is rw {
     Proxy.new:
-      FETCH => -> $ { $!visual },
+      FETCH => sub ($) { $!visual },
       STORE => -> $, GdkVisual() $new {
         self.^attributes[7].set_value(self, $new)
       }
@@ -408,7 +408,7 @@ class GdkWindowAttr is repr('CStruct') does GLib::Roles::Pointers is export {
 
   method cursor is rw {
 		Proxy.new:
-			FETCH => -> $ { $.cursor },
+			FETCH => sub ($) { $.cursor },
 			STORE => -> $, GdkCursor() $val {
 				self.^attributes[9].set_value(self, $val);
       }
@@ -416,7 +416,7 @@ class GdkWindowAttr is repr('CStruct') does GLib::Roles::Pointers is export {
 
   method wmclass_name is rw {
 		Proxy.new:
-			FETCH => -> $ { $.wmclass_name },
+			FETCH => sub ($) { $.wmclass_name },
 			STORE => -> $, Str() $val {
 				self.^attributes[10].set_value(self, $val);
       }
@@ -424,7 +424,7 @@ class GdkWindowAttr is repr('CStruct') does GLib::Roles::Pointers is export {
 
   method wmclass_class is rw {
     Proxy.new:
-      FETCH => -> $ { $.label_name },
+      FETCH => sub ($) { $.label_name },
       STORE => -> $, Str() $val {
         self.^attributes[11].set_value(self, $val);
       }
