@@ -13,14 +13,14 @@ use GLib::Roles::Pointers;
 
 unit package GDK::Raw::Structs;
 
-class GdkColor is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkColor is repr<CStruct> does GLib::Roles::Pointers is export {
   has guint   $.pixel;
   has guint16 $.red;
   has guint16 $.green;
   has guint16 $.blue;
 }
 
-class GdkGeometry is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkGeometry is repr<CStruct> does GLib::Roles::Pointers is export {
   has gint       $.min_width;
   has gint       $.min_height;
   has gint       $.max_width;
@@ -34,20 +34,20 @@ class GdkGeometry is repr('CStruct') does GLib::Roles::Pointers is export {
   has guint      $.win_gravity;         # GdkGravity
 }
 
-class GdkRectangle is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkRectangle is repr<CStruct> does GLib::Roles::Pointers is export {
   has gint $.x is rw;
   has gint $.y is rw;
   has gint $.width is rw;
   has gint $.height is rw;
 }
 
-class GdkPixbufModulePattern is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkPixbufModulePattern is repr<CStruct> does GLib::Roles::Pointers is export {
 	has Str $.prefix;
 	has Str $.mask;
 	has int $.relevance;
 }
 
-class GdkPixbufFormat is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkPixbufFormat is repr<CStruct> does GLib::Roles::Pointers is export {
   has Str                     $.name;
   has GdkPixbufModulePattern  $.signature;
   has Str                     $.domain;
@@ -59,14 +59,14 @@ class GdkPixbufFormat is repr('CStruct') does GLib::Roles::Pointers is export {
   has Str                     $.license;
 }
 
-class GdkPoint is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkPoint is repr<CStruct> does GLib::Roles::Pointers is export {
   has gint $.x is rw;
   has gint $.y is rw;
 }
 
 # class GdkEvent is repr<CUnion> does GLib::Roles::Pointers is export {
 
-class GdkEventAny is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventAny is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32       $.type;              # GdkEventType
   has GdkWindow    $.window;
   has int8         $.send_event;
@@ -76,7 +76,7 @@ class GdkEventAny is repr('CStruct') does GLib::Roles::Pointers is export {
 
 constant GdkEvent is export := GdkEventAny;
 
-class GdkEventKey is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventKey is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32       $.type;              # GdkEventType
   has GdkWindow    $.window;
   has int8         $.send_event;
@@ -92,7 +92,7 @@ class GdkEventKey is repr('CStruct') does GLib::Roles::Pointers is export {
   method GDK::Raw::Structs::GdkEvent { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventButton is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventButton is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -114,7 +114,7 @@ class GdkEventButton is repr('CStruct') does GLib::Roles::Pointers is export {
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventExpose   is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventExpose   is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -130,7 +130,7 @@ class GdkEventExpose   is repr('CStruct') does GLib::Roles::Pointers is export {
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventCrossing is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventCrossing is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -153,7 +153,7 @@ class GdkEventCrossing is repr('CStruct') does GLib::Roles::Pointers is export {
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventFocus    is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventFocus    is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -167,7 +167,7 @@ class GdkEventFocus    is repr('CStruct') does GLib::Roles::Pointers is export {
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventConfigure is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventConfigure is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -184,7 +184,7 @@ class GdkEventConfigure is repr('CStruct') does GLib::Roles::Pointers is export 
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventProperty is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventProperty is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -200,7 +200,7 @@ class GdkEventProperty is repr('CStruct') does GLib::Roles::Pointers is export {
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventScroll is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventScroll is repr<CStruct> does GLib::Roles::Pointers is export {
   has GdkEventType       $.type;
   has GdkWindow          $.window;
   has gint8              $.send_event;
@@ -224,7 +224,7 @@ class GdkEventScroll is repr('CStruct') does GLib::Roles::Pointers is export {
   { nativecast(GdkEventAny, self) }
 };
 
-class GdkEventSelection is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventSelection is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -242,7 +242,7 @@ class GdkEventSelection is repr('CStruct') does GLib::Roles::Pointers is export 
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventDnD is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventDnD is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -259,7 +259,7 @@ class GdkEventDnD is repr('CStruct') does GLib::Roles::Pointers is export {
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventProximity is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventProximity is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -274,7 +274,7 @@ class GdkEventProximity is repr('CStruct') does GLib::Roles::Pointers is export 
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventWindowState is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventWindowState is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -289,7 +289,7 @@ class GdkEventWindowState is repr('CStruct') does GLib::Roles::Pointers is expor
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventSetting is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventSetting is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -304,7 +304,7 @@ class GdkEventSetting is repr('CStruct') does GLib::Roles::Pointers is export {
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventOwnerChange is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventOwnerChange is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -322,7 +322,7 @@ class GdkEventOwnerChange is repr('CStruct') does GLib::Roles::Pointers is expor
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventMotion is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventMotion is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -344,7 +344,7 @@ class GdkEventMotion is repr('CStruct') does GLib::Roles::Pointers is export {
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventGrabBroken is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkEventGrabBroken is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -374,7 +374,7 @@ our subset GdkEvents is export where
   GdkEventGrabBroken | GdkEventOwnerChange | GdkEventMotion    |
   GdkEventKey        | GdkEventScroll;
 
-class GdkWindowAttr is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkWindowAttr is repr<CStruct> does GLib::Roles::Pointers is export {
   has Str       $!title;
   has gint      $.event_mask        is rw;
   has gint      $.x                 is rw;
@@ -432,12 +432,12 @@ class GdkWindowAttr is repr('CStruct') does GLib::Roles::Pointers is export {
 
 }
 
-class GdkTimeCoord is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkTimeCoord is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32        $.time;
   has CArray[num64] $.axes;
 }
 
-class GdkKeymapKey is repr('CStruct') does GLib::Roles::Pointers is export {
+class GdkKeymapKey is repr<CStruct> does GLib::Roles::Pointers is export {
   has guint $.keycode;
   has gint  $.group;
   has gint  $.level;
