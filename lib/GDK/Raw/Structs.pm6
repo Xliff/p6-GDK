@@ -13,6 +13,7 @@ use GLib::Roles::Pointers;
 
 unit package GDK::Raw::Structs;
 
+#| Opaque
 class GdkColor is repr<CStruct> does GLib::Roles::Pointers is export {
   has guint   $.pixel;
   has guint16 $.red;
@@ -41,12 +42,14 @@ class GdkRectangle is repr<CStruct> does GLib::Roles::Pointers is export {
   has gint $.height is rw;
 }
 
+#| Opaque
 class GdkPixbufModulePattern is repr<CStruct> does GLib::Roles::Pointers is export {
 	has Str $.prefix;
 	has Str $.mask;
 	has int $.relevance;
 }
 
+#| Opaque
 class GdkPixbufFormat is repr<CStruct> does GLib::Roles::Pointers is export {
   has Str                     $.name;
   has GdkPixbufModulePattern  $.signature;
@@ -118,7 +121,7 @@ class GdkEventExpose   is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
-  has GdkRectangle   $.area;
+  HAS GdkRectangle   $.area;
   has cairo_region_t $.region;
   has int32          $.count;
 
@@ -242,7 +245,7 @@ class GdkEventSelection is repr<CStruct> does GLib::Roles::Pointers is export {
   { nativecast(GdkEventAny, self) }
 }
 
-class GdkEventDnD is repr<CStruct> does GLib::Roles::Pointers is export {
+class GdkEventDND is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32         $.type;            # GdkEventType
   has GdkWindow      $.window;
   has int8           $.send_event;
@@ -368,7 +371,7 @@ class GdkEventGrabBroken is repr<CStruct> does GLib::Roles::Pointers is export {
 
 our subset GdkEvents is export where
   GdkEventAny        | GdkEventButton      | GdkEventExpose    |
-  GdkEventDnD        | GdkEventProperty    | GdkEventFocus     |
+  GdkEventDND        | GdkEventProperty    | GdkEventFocus     |
   GdkEventSetting    | GdkEventProximity   | GdkEventSelection |
   GdkEventConfigure  | GdkEventWindowState | GdkEventCrossing  |
   GdkEventGrabBroken | GdkEventOwnerChange | GdkEventMotion    |
@@ -434,7 +437,7 @@ class GdkWindowAttr is repr<CStruct> does GLib::Roles::Pointers is export {
 
 class GdkTimeCoord is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32        $.time;
-  has CArray[num64] $.axes;
+  HAS CArray[num64] @.axes[GDK_MAX_TIMECOORD_AXES] is CArray;
 }
 
 class GdkKeymapKey is repr<CStruct> does GLib::Roles::Pointers is export {
