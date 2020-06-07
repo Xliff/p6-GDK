@@ -154,7 +154,7 @@ class GDK::Event {
              GDK_DRAG_MOTION         |
              GDK_DRAG_STATUS         |
              GDK_DROP_START          |
-             GDK_DROP_FINISHED       { GdkEventDnD }
+             GDK_DROP_FINISHED       { GdkEventDND }
         when GDK_SCROLL              { GdkEventScroll }
         when GDK_WINDOW_STATE        { GdkEventWindowState }
         when GDK_SETTING             { GdkEventSetting }
