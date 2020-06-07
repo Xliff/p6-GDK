@@ -3,7 +3,7 @@ use v6.c;
 unit package GDK::KeySyms;
 
 # Number of times I've had to force compile the whole project.
-constant forced = 24;
+constant forced = 26;
 
 our enum GdkKeySymbols is export (
    GDK_KEY_VoidSymbol                  => 0xffffff,
