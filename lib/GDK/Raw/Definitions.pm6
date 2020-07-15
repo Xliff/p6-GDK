@@ -10,7 +10,7 @@ use GLib::Roles::Pointers;
 unit package GDK::Raw::Definitions;
 
 # Number of times I've had to force compile the whole project.
-my constant forced = 12;
+my constant forced = 14;
 
 constant gdk        is export = 'gdk-3',v0;
 constant gdk-pixbuf is export = 'gdk_pixbuf-2.0',v0;
@@ -36,27 +36,27 @@ constant GdkWindowChildFunc             is export := Pointer;
 constant GdkWindowInvalidateHandlerFunc is export := Pointer;
 
 # --- GDK TYPES ---
-class GdkAppLaunchContext    is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkAtom                is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkCursor              is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkDevice              is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkDeviceManager       is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkDeviceTool          is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkDisplay             is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkDisplayManager      is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkDragContext         is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkDrawingContext      is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkEventSequence       is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkFrameClock          is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkFrameTimings        is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkGLContext           is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkKeymap              is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkMonitor             is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkPixbuf              is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkPixbufAnimation     is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkPixbufAnimationIter is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkScreen              is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkSeat                is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkStyleProvider       is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkVisual              is repr('CPointer') is export does GLib::Roles::Pointers { }
-class GdkWindow              is repr('CPointer') is export does GLib::Roles::Pointers { }
+class GdkAppLaunchContext    is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkAtom                is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkCursor              is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkDevice              is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkDeviceManager       is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkDeviceTool          is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkDisplay             is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkDisplayManager      is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkDragContext         is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkDrawingContext      is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkEventSequence       is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkFrameClock          is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkFrameTimings        is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkGLContext           is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkKeymap              is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkMonitor             is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkPixbuf              is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkPixbufAnimation     is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkPixbufAnimationIter is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkScreen              is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkSeat                is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkStyleProvider       is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkVisual              is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkWindow              is repr<CPointer> is export does GLib::Roles::Pointers { }
