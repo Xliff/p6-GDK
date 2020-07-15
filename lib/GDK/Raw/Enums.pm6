@@ -428,7 +428,7 @@ our enum GdkDragProtocolEnum is export (
   'GDK_DRAG_PROTO_WAYLAND'
 );
 
-constant GdkSelectionAtom is export := guint32;
+constant GdkSelectionAtom is export := gint64;
 our enum GdkSelectionAtomEnum is export (
   GDK_SELECTION_PRIMARY        => 1,
   GDK_SELECTION_SECONDARY      => 2,
