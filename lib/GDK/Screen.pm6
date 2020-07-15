@@ -3,6 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
+use Cairo;
 use GDK::Raw::Types;
 use GDK::Raw::Screen;
 use GDK::Raw::X11_Screen;
@@ -62,7 +63,7 @@ class GDK::Screen {
       FETCH => sub ($) {
         gdk_screen_get_font_options($!screen);
       },
-      STORE => sub ($, $options is copy) {
+      STORE => sub ($, cairo_font_options_t $options is copy) {
         gdk_screen_set_font_options($!screen, $options);
       }
     );
@@ -86,7 +87,11 @@ class GDK::Screen {
   # ↓↓↓↓ METHODS ↓↓↓↓
   method get_active_window (:$raw = False)
     is DEPRECATED
-    is also<get-active-window>
+    is also<
+      get-active-window
+      active_window
+      active-window
+    >
   {
     my $w = gdk_screen_get_active_window($!screen);
 
@@ -96,21 +101,47 @@ class GDK::Screen {
       Nil;
   }
 
-  method get_default is also<get-default> {
+  method get_default
+    is also<
+      get-default
+      default
+    >
+  {
     my $screen = gdk_screen_get_default();
 
     $screen ?? self.bless(:$screen) !! Nil;
   }
 
-  method get_display is also<get-display> {
-    ::('GDK::Display').new( gdk_screen_get_display($!screen) );
+  method get_display (:$raw = False)
+    is also<
+      get-display
+      display
+    >
+  {
+    my $d = gdk_screen_get_display($!screen);
+
+    $d ??
+      ( $raw ?? $d !! ::('GDK::Display').new($d) )
+      !!
+      Nil;
   }
 
-  method get_height is also<get-height> {
+  method get_height
+    is also<
+      get-height
+      height
+    >
+  {
     gdk_screen_get_height($!screen);
   }
 
-  method get_height_mm is also<get-height-mm> {
+  method get_height_mm
+    is also<
+      get-height-mm
+      height_mm
+      height-mm
+    >
+  {
     gdk_screen_get_height_mm($!screen);
   }
 
@@ -176,15 +207,33 @@ class GDK::Screen {
     gdk_screen_get_monitor_workarea($!screen, $mn, $dest);
   }
 
-  method get_n_monitors is also<get-n-monitors> {
+  method get_n_monitors
+    is also<
+      get-n-monitors
+      n_monitors
+      n-monitors
+      elems
+    >
+  {
     gdk_screen_get_n_monitors($!screen);
   }
 
-  method get_number is also<get-number> {
+  method get_number
+    is also<
+      get-number
+      number
+    >
+  {
     gdk_screen_get_number($!screen);
   }
 
-  method get_rgba_visual (:$raw = False) is also<get-rgba-visual> {
+  method get_rgba_visual (:$raw = False)
+    is also<
+      get-rgba-visual
+      rgba_visual
+      rgba-visual
+    >
+  {
     my $v = gdk_screen_get_rgba_visual($!screen);
 
     $v ??
@@ -248,16 +297,31 @@ class GDK::Screen {
     unstable_get_type( self.^name, &gdk_screen_get_type, $n, $t );
   }
 
-  method get_width is also<get-width> {
+  method get_width
+    is also<
+      get-width
+      width
+    >
+  {
     gdk_screen_get_width($!screen);
   }
 
-  method get_width_mm is also<get-width-mm> {
+  method get_width_mm
+    is also<
+      get-width-mm
+      width_mm
+      width-mm
+    >
+  {
     gdk_screen_get_width_mm($!screen);
   }
 
   method get_window_stack (:$glist = False, :$raw = False)
-    is also<get-window-stack>
+    is also<
+      get-window-stack
+      window_stack
+      window-stack
+    >
   {
     my $sl = gdk_screen_get_window_stack($!screen);
 
@@ -287,44 +351,64 @@ class GDK::Screen {
   }
   # ↑↑↑↑ METHODS ↑↑↑↑
 
-  method x11_get_default_screen {
+  method x11_get_default_screen is also<x11-get-default-screen> {
     gdk_x11_get_default_screen();
   }
 
-  method x11_get_current_desktop {
+  method x11_get_current_desktop is also<x11-get-current-desktop> {
     gdk_x11_screen_get_current_desktop($!screen);
   }
 
-  method x11_get_monitor_output (Int() $monitor_num) {
+  method x11_get_monitor_output (Int() $monitor_num)
+    is also<x11-get-monitor-output>
+  {
     my gint $mn = $monitor_num;
 
     gdk_x11_screen_get_monitor_output($!screen, $mn);
   }
 
-  method x11_get_number_of_desktops {
+  method x11_get_number_of_desktops
+    is also<
+      x11-get-number-of-desktops
+      x11_d_elems
+      x11-d-elems
+    >
+  {
     gdk_x11_screen_get_number_of_desktops($!screen);
   }
 
-  method x11_get_screen_number {
+  method x11_get_screen_number
+    is also<x11-get-screen-number>
+  {
     gdk_x11_screen_get_screen_number($!screen);
   }
 
-  method x11_get_type {
+  method x11_get_type is also<x11-get-type> {
     state ($n, $t);
 
     unstable_get_type( self.^name, &gdk_x11_screen_get_type, $n, $t );
   }
 
-  method x11_get_window_manager_name {
+  method x11_get_window_manager_name
+    is also<x11-get-window-manager-name>
+  {
     gdk_x11_screen_get_window_manager_name($!screen);
   }
 
-  method x11_get_xscreen {
+  method x11_get_xscreen is also<x11-get-screen> {
     gdk_x11_screen_get_xscreen($!screen);
   }
 
-  method x11_supports_net_wm_hint (GdkAtom $property) {
-    gdk_x11_screen_supports_net_wm_hint($!screen, $property);
+  proto method x11_supports_net_wm_hint (|)
+    is also<x11-supports-net-wm-hint>
+  { * }
+
+  multi method x11_supports_net_wm_hint (Int() $property) {
+    my GdkAtom $p = $property;
+    samewith($p);
+  }
+  multi method x11_supports_net_wm_hint (GdkAtom $property) {
+    so gdk_x11_screen_supports_net_wm_hint($!screen, $property);
   }
 
 }
