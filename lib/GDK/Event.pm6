@@ -122,7 +122,13 @@ class GDK::Event {
   }
 
   # Custom method.
-  method get_typed_event is also<get-typed-event> {
+  method get_typed_event
+    is also<
+      get-typed-event
+      typed_event
+      typed-event
+    >
+  {
     say GdkEventTypeEnum($!e.type);
 
     cast(
@@ -320,12 +326,17 @@ class GDK::Event {
     gdk_event_get_state($!e, $s);
   }
 
-  method get_time
+  proto method get_time (|)
     is also<
       get-time
       time
     >
-  {
+  { * }
+
+  multi method get_time (GDK::Event:U: ) {
+    gdk_event_get_time(GdkEvent);
+  }
+  multi method get_time (GDK::Event:D: ) {
     gdk_event_get_time($!e);
   }
 
