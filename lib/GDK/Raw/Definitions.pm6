@@ -10,7 +10,7 @@ use GLib::Roles::Pointers;
 unit package GDK::Raw::Definitions;
 
 # Number of times I've had to force compile the whole project.
-my constant forced = 14;
+my constant forced = 17;
 
 constant gdk        is export = 'gdk-3',v0;
 constant gdk-pixbuf is export = 'gdk_pixbuf-2.0',v0;
