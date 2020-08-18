@@ -1,6 +1,5 @@
 use v6.c;
 
-use CompUnit::Util :re-export;
 use GLib::Raw::Exports;
 use Pango::Raw::Exports;
 use GIO::Raw::Exports;
@@ -31,9 +30,8 @@ need GDK::Raw::Structs;
 need GDK::Raw::Subs;
 
 BEGIN {
-  re-export($_) for
-    |@glib-exports,
-    |@pango-exports,
-    |@gio-exports,
-    |@gdk-exports;
+  glib-re-export($_) for |@glib-exports,
+                         |@pango-exports,
+                         |@gio-exports,
+                         |@gdk-exports;
 }
