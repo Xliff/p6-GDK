@@ -6,6 +6,8 @@ use NativeCall;
 use GDK::Raw::Types;
 use GDK::Raw::Keymap;
 
+use GDK::Display;
+
 use GLib::Roles::TypedBuffer;
 
 class GDK::Keymap {
@@ -23,14 +25,14 @@ class GDK::Keymap {
     GDK::Keymap.get_for_display($display);
   }
   multi method new {
-    GDK::Keymap.get_for_display(GdkDisplay);
+    GDK::Keymap.get_for_display( GDK::Display.get_default );
   }
 
-  method get_for_display(GdkDisplay() $display is copy)
+  method get_for_display (GdkDisplay() $display is copy)
     is also<get-for-display>
   {
-    $display //= GDK::Display.get_default;
     my $keymap = gdk_keymap_get_for_display($display);
+
     $keymap ?? self.bless(:$keymap) !! Nil;
   }
 
@@ -72,47 +74,50 @@ class GDK::Keymap {
     PangoDirectionEnum( gdk_keymap_get_direction($!km) );
   }
 
-  proto method get_entries_for_keycode (|c)
+  proto method get_entries_for_keycode (|)
     is also<get-entries-for-keycode>
   { * }
 
-  multi method get_entries_for_keycode (
-    Int() $hardware_keycode,
-    :$raw = False
-  ) {
-    my guint ($h, $n) = ($hardware_keycode, 0);
-    my $keys = CArray[Pointer].new;
-    my $kvals = CArray[CArray[guint]].new;
-    $keys[0] = Pointer;
-    $kvals[0] = CArray[gint];
+  multi method get_entries_for_keycode ( Int() $hardware_keycode ) {
+    my $keys = CArray[Pointer[GdkKeymapKey]].new;
+    my $kvals = CArray[guint].new;
+    $keys[0] = Pointer[GdkKeymapKey];
+    $kvals[0] = 0;
 
-    samewith($h, $keys, $kvals, $n, :$raw);
+    my $rv = samewith($hardware_keycode, $keys, $kvals, $, :all);
+    $rv[0] ?? $rv.skip(1) !! Nil;
   }
   multi method get_entries_for_keycode (
     Int() $hardware_keycode,
     CArray[Pointer[GdkKeymapKey]] $keys,
     CArray[guint] $keyvals,
     $n_entries is rw,
-    :$raw = False
+    :$all = False
   ) {
     my guint $hk = $hardware_keycode;
-    my gint $ne = $n_entries;
-    my $rc = gdk_keymap_get_entries_for_keycode(
-      $!km, $hk, $keys, $keyvals, $ne
+    my gint $ne = 0;
+    my $rv = gdk_keymap_get_entries_for_keycode(
+      $!km,
+      $hk,
+      $keys, 
+      $keyvals,
+      $ne
     );
     $n_entries = $ne;
-    $keys = do if $keys[0] {
-      my $k = GLib::Roles::TypedBuffer[GdkKeymapKey].new($keys[0]);
-      $k.setSize($ne);
+    my $new-keys = do if $keys[0] {
+      my $k = GLib::Roles::TypedBuffer[GdkKeymapKey].new-typedbuffer-obj(
+        $keys[0]
+      );
+      $k.setSize($ne, :forced);
       $k.Array;
     } else {
       Nil;
     }
 
-    (
-      $rc,
-      $keys,
-      $keyvals[0] ?? CArrayToArray($keyvals[0]) !! Nil
+    $all.not ?? $rv !! (
+      $rv,
+      $new-keys,
+      CArrayToArray($keyvals, $ne),
     );
   }
 
