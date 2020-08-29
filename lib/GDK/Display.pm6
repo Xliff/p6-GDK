@@ -33,26 +33,30 @@ class GDK::Display {
   { $!d }
 
   multi method new (GdkDisplay $display) {
-    return Nil unless $display;
-
-    self.bless(:$display);
+    $display ?? self.bless( :$display ) !! Nil;
   }
-  multi method new(Str() $name) is also<open> {
+  multi method new (Str() $name) is also<open> {
     my $display = gdk_display_open($name);
 
-    $display ?? self.bless($display) !! Nil;
+    $display ?? self.bless( :$display ) !! Nil;
   }
 
   method open_default_libgtk_only is also<open-default-libgtk-only> {
     my $display = gdk_display_open_default_libgtk_only();
 
-    $display ?? self.bless($display) !! Nil;
+    $display ?? self.bless( :$display ) !! Nil;
   }
 
   method get_default is also<get-default> {
     my $display = gdk_display_get_default();
 
-    $display ?? self.bless($display) !! Nil;
+    # cw: The above expression returns NULL, so this is the only other
+    #     default as I understand it. This is a KNOWN HACK, and
+    #     better solutions would be greatly appreciated.
+    $display //= gdk_display_open(':0'); # cw: SRSLY?!?
+
+
+    $display ?? self.bless( :$display ) !! Nil;
   }
 
   # ↓↓↓↓ SIGNALS ↓↓↓↓
