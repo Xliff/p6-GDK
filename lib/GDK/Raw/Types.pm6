@@ -21,6 +21,7 @@ need Pango::Raw::Subs;
 need GIO::DBus::Raw::Types;
 need GIO::Raw::Definitions;
 need GIO::Raw::Enums;
+need GIO::Raw::Quarks;
 need GIO::Raw::Structs;
 need GIO::Raw::Subs;
 need GIO::Raw::Exports;
