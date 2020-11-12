@@ -13,15 +13,33 @@ use GLib::GList;
 use GLib::Roles::Object;
 use GLib::Roles::ListData;
 
+our subset GdkPixbufAncestry is export of Mu
+  where GdkPixbuf | GObject;
+
 class GDK::Pixbuf {
   also does GLib::Roles::Object;
 
   has GdkPixbuf $!p is implementor;
 
-  submethod BUILD(:$pixbuf) {
-    $!p = $pixbuf;
+  submethod BUILD (:$pixbuf) {
+    self.setGdkPixbuf($pixbuf) if $pixbuf;
+  }
 
-    self.roleInit-Object;
+  method setGdkPixbuf (GdkPixbufAncestry $_) {
+    my $to-parent;
+
+    $!p = do {
+      when GdkPixbuf {
+        $to-parent = cast(GObject, $_);
+        $_;
+      }
+
+      default {
+        $to-parent = $_;
+        cast(GdkPixbuf, $_);
+      }
+    }
+    self!setObject($to-parent);
   }
 
   method GDK::Raw::Definitions::GdkPixbuf
@@ -34,8 +52,12 @@ class GDK::Pixbuf {
   }
 
   # ↓↓↓↓ OBJECT CREATION ↓↓↓↓
-  multi method new (GdkPixbuf $pixbuf) {
-    self.bless(:$pixbuf);
+  multi method new (GdkPixbuf $pixbuf, :$ref = True) {
+    return Nil unless $pixbuf;
+
+    my $o = self.bless(:$pixbuf);
+    $o.ref if $ref;
+    $o;
   }
   multi method new (
     Int() $colorspace,
@@ -400,15 +422,18 @@ class GDK::Pixbuf {
 
   method new_subpixbuf (
     GdkPixbuf() $src,
-    Int() $src_x,
-    Int() $src_y,
-    Int() $width,
-    Int() $height
+    Int()       $src_x,
+    Int()       $src_y,
+    Int()       $width,
+    Int()       $height
   )
     is also<new-subpixbuf>
   {
     my gint ($sx, $sy, $w, $h) = ($src_x, $src_y, $width, $height);
     my $pixbuf = gdk_pixbuf_new_subpixbuf($src, $sx, $sy, $w, $h);
+
+    say "src: { $src // 'NOSRC!' }";
+    say "sub-pix opts: ($sx, $sy, $w, $h)";
 
     $pixbuf ?? self.bless(:$pixbuf) !! Nil;
   }
@@ -820,18 +845,20 @@ class GDK::Pixbuf {
 
   method get_formats (
     GDK::Pixbuf:U:
-    :gslist(:$glist) = False
+    :gslist(:$glist) = False,
+    :$raw            = False
   )
     is also<get-formats>
   {
     my $f = gdk_pixbuf_get_formats();
 
     return Nil unless $f;
-    return $f  if $glist;
+    return $f  if $glist && $raw;
 
     # XXX - Should be GSList, but implementation is not properly working!!
     my $fl = GLib::GList.new($f)
       but GLib::Roles::ListData[GdkPixbufFormat];
+    return $fl if $glist;
 
     $fl.Array;
   }

@@ -503,7 +503,7 @@ sub gdk_pixbuf_unref (GdkPixbuf $pixbuf)
 
 # To be moved to GDK::Pixbuf::Formats
 sub gdk_pixbuf_get_formats ()
-  returns GList
+  returns GSList
   is native(gdk-pixbuf)
   is export
 { * }
