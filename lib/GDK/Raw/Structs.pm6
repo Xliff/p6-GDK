@@ -42,14 +42,12 @@ class GdkRectangle is repr<CStruct> does GLib::Roles::Pointers is export {
   has gint $.height is rw;
 }
 
-#| Opaque
 class GdkPixbufModulePattern is repr<CStruct> does GLib::Roles::Pointers is export {
 	has Str $.prefix;
 	has Str $.mask;
 	has int $.relevance;
 }
 
-#| Opaque
 class GdkPixbufFormat is repr<CStruct> does GLib::Roles::Pointers is export {
   has Str                     $.name;
   has GdkPixbufModulePattern  $.signature;

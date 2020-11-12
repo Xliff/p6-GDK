@@ -7,6 +7,9 @@
 
 #include <gdk/gdk.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <gdk/gdkevents.h>
+#include <gdk/gdkseat.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
 #define s(name)     DLLEXPORT int sizeof_ ## name () { return sizeof(name); }
 
@@ -36,6 +39,8 @@ s(GdkEventVisibility)
 s(GdkEventWindowState)
 s(GdkGeometry)
 s(GdkKeymapKey)
+s(GdkPixbufModulePattern)
+s(GdkPixbufFormat)
 s(GdkPoint)
 s(GdkRectangle)
 s(GdkRGBA)
