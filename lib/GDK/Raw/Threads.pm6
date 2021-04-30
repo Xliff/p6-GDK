@@ -7,65 +7,65 @@ use GDK::Raw::Types;
 unit package GDK::Raw::Threads;
 
 sub gdk_threads_add_idle (
-  &function (Pointer --> guint32),
+           &function (Pointer --> guint32),
   gpointer $data
 )
   returns guint
   is native(gdk)
   is export
-  { * }
+{ * }
 
 sub gdk_threads_add_idle_full (
-  gint $priority,
-  &function (Pointer --> guint32),
-  gpointer $data,
-  GDestroyNotify $notify
+  gint           $priority,
+                 &idle-function (Pointer --> guint32),
+  gpointer       $data,
+                 &function (gpointer)
 )
   returns guint
   is native(gdk)
   is export
-  { * }
+{ * }
 
 sub gdk_threads_add_timeout (
-  guint $interval,
-  &function (Pointer --> guint32),
+  guint    $interval,
+           &function (Pointer --> guint32),
   gpointer $data
 )
   returns guint
   is native(gdk)
   is export
-  { * }
+{ * }
 
 sub gdk_threads_add_timeout_full (
-  gint $priority,
-  guint $interval,
-  &function (Pointer --> guint32),
+  gint     $priority,
+  guint    $interval,
+           &timeout-function (Pointer --> guint32),
   gpointer $data,
-  GDestroyNotify $notify
+           &function (gpointer)
 )
   returns guint
   is native(gdk)
   is export
-  { * }
+{ * }
 
 sub gdk_threads_add_timeout_seconds (
-  guint $interval,
-  &function (Pointer --> guint32),
+  guint    $interval,
+           &function (Pointer --> guint32),
   gpointer $data
 )
   returns guint
   is native(gdk)
   is export
-  { * }
+{ * }
 
 sub gdk_threads_add_timeout_seconds_full (
-  gint $priority,
-  guint $interval,
-  &function (Pointer --> guint32),
+  gint     $priority,
+  guint    $interval,
+           &timeout-function (Pointer --> guint32),
   gpointer $data,
-  GDestroyNotify $notify
+           &function (gpointer)
 )
   returns guint
   is native(gdk)
   is export
-  { * }
+{ * }
