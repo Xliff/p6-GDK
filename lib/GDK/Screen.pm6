@@ -8,16 +8,38 @@ use GDK::Raw::Types;
 use GDK::Raw::Screen;
 use GDK::Raw::X11_Screen;
 
+use GLib::Roles::Object;
 use GLib::Roles::ListData;
 use GLib::Roles::Signals::Generic;
 
+our subset GdkScreenAncestry is export of Mu
+  where GdkScreen | GObject;
+
 class GDK::Screen {
+  also does GLib::Roles::Object;
   also does GLib::Roles::Signals::Generic;
 
   has GdkScreen $!screen is implementor;
 
-  submethod BUILD(:$screen) {
-    $!screen = $screen;
+  submethod BUILD (:$screen) {
+    self.setGdkScreen($screen) if $screen;
+  }
+
+  method setGdkScreen (GdkScreenAncestry $_) {
+    my $to-parent;
+
+    $!screen = do {
+      when GdkScreen {
+        $to-parent = cast(GObject, $_);
+        $_;
+      }
+
+      default {
+        $to-parent = $_;
+        cast(GdkScreen, $_);
+      }
+    }
+    self!setObject($to-parent);
   }
 
   submethod DESTROY {
@@ -31,8 +53,12 @@ class GDK::Screen {
     >
   { $!screen }
 
-  method new (GdkScreen() $screen) {
-    $screen ?? self.bless(:$screen) !! Nil
+  method new (GdkScreen $screen, :$ref = True) {
+    return Nil unless $screen;
+
+    my $o = self.bless( :$screen );
+    $o.ref if $ref;
+    $o;
   }
 
   # ↓↓↓↓ SIGNALS ↓↓↓↓
@@ -96,7 +122,7 @@ class GDK::Screen {
     my $w = gdk_screen_get_active_window($!screen);
 
     $w ??
-      ( $raw ?? $w !! ::('GDK::Window').new($w) )
+      ( $raw ?? $w !! ::('GDK::Window').new($w, :!ref) )
       !!
       Nil;
   }
@@ -121,7 +147,7 @@ class GDK::Screen {
     my $d = gdk_screen_get_display($!screen);
 
     $d ??
-      ( $raw ?? $d !! ::('GDK::Display').new($d) )
+      ( $raw ?? $d !! ::('GDK::Display').new($d, :!ref) )
       !!
       Nil;
   }
@@ -159,12 +185,20 @@ class GDK::Screen {
     gdk_screen_get_monitor_at_window($!screen, $window);
   }
 
-  method get_monitor_geometry (Int() $monitor_num, GdkRectangle() $dest)
+  proto method get_monitor_geometry (|)
     is also<get-monitor-geometry>
-  {
+  { * }
+
+  multi method get_monitor_geometry (Int() $monitor_num) {
+    my $d = GdkRectangle.new;
+
+    samewith($monitor_num, $d);
+  }
+  multi method get_monitor_geometry (Int() $monitor_num, GdkRectangle() $dest) {
     my gint $m = $monitor_num;
 
     gdk_screen_get_monitor_geometry($!screen, $m, $dest);
+    $dest;
   }
 
   method get_monitor_height_mm (Int() $monitor_num)
@@ -227,6 +261,16 @@ class GDK::Screen {
     gdk_screen_get_number($!screen);
   }
 
+  method get_primary_monitor
+    is also<
+      get-primary-monitor
+      primary_monitor
+      primary-monitor
+    >
+  {
+    gdk_screen_get_primary_monitor($!screen);
+  }
+
   method get_rgba_visual (:$raw = False)
     is also<
       get-rgba-visual
@@ -237,7 +281,7 @@ class GDK::Screen {
     my $v = gdk_screen_get_rgba_visual($!screen);
 
     $v ??
-      ( $raw ?? $v !! ::('GDK::Visual').new($v) )
+      ( $raw ?? $v !! ::('GDK::Visual').new($v, :!ref) )
       !!
       Nil;
   }
@@ -274,7 +318,7 @@ class GDK::Screen {
     my $v = gdk_screen_get_system_visual($!screen);
 
     $v ??
-      ( $raw ?? $v !! ::('GDK::Visual').new($v) )
+      ( $raw ?? $v !! ::('GDK::Visual').new($v, :!ref) )
       !!
       Nil;
   }
@@ -285,9 +329,12 @@ class GDK::Screen {
     my $wl = gdk_screen_get_toplevel_windows($!screen);
 
     return Nil unless $wl;
-    return $wl if $glist;
+    return $wl if $glist && $raw;
 
     $wl = GLib::GList.new($wl) but GList::Roles::ListData[GdkWindow];
+
+    return $wl if $glist;
+
     $raw ?? $wl.Array !! $wl.Array.map({ ::('GDK::Window').new($_) });
   }
 
@@ -326,10 +373,13 @@ class GDK::Screen {
     my $sl = gdk_screen_get_window_stack($!screen);
 
     return Nil unless $sl;
-    return $sl if $glist;
+    return $sl if $glist && $raw;
 
     $sl = GLib::GList.new($sl) but GList::Roles::ListData[GdkWindow];
-    $raw ?? $sl.Array !! $sl.Array.map({ ::('GDK::Window').new($_) });
+
+    return $sl if $glist;
+
+    $raw ?? $sl.Array !! $sl.Array.map({ ::('GDK::Window').new($_, :!ref) });
   }
 
   method is_composited is also<is-composited> {
@@ -340,9 +390,12 @@ class GDK::Screen {
     my $vl = gdk_screen_list_visuals($!screen);
 
     return Nil unless $vl;
-    return $vl if $glist;
+    return $vl if $glist && $raw;
 
     $vl = GLib::GList.new($vl) but GLib::Roles::ListData[GdkVisual];
+
+    return $vl if $glist;
+
     $raw ?? $vl.Array !! $vl.Array.map({ ::('GDK::Visual').new($_) });
   }
 
