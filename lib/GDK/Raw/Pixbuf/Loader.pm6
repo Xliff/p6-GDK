@@ -1,7 +1,11 @@
 use v6.c;
 
+use NativeCall;
+
 use GLib::Raw::Definitions;
+use GLib::Raw::Structs;
 use GDK::Raw::Definitions;
+use GDK::Raw::Structs;
 
 unit package GDK::Raw::Pixbuf::Loader;
 
