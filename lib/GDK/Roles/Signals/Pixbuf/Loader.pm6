@@ -22,7 +22,7 @@ role GDK::Roles::Signals::Pixbuf::Loader {
             default { 𝒮.note($_) }
           }
 
-          𝒮.emit( [self, $g1, $g2, $g3, $g5, $ud ] );
+          𝒮.emit( [self, $g1, $g2, $g3, $g4, $ud ] );
         },
         Pointer, 0
       );
