@@ -51,11 +51,14 @@ class GDK::Pixbuf {
     $!p;
   }
 
+  proto method new (|)
+  { * }
+
   # ↓↓↓↓ OBJECT CREATION ↓↓↓↓
-  multi method new (GdkPixbuf $pixbuf, :$ref = True) {
+  multi method new (GdkPixbufAncestry $pixbuf, :$ref = True) {
     return Nil unless $pixbuf;
 
-    my $o = self.bless(:$pixbuf);
+    my $o = self.bless( :$pixbuf );
     $o.ref if $ref;
     $o;
   }
@@ -71,7 +74,7 @@ class GDK::Pixbuf {
     my guint $cs =$colorspace;
     my $pixbuf = gdk_pixbuf_new($cs, $ha, $bps, $w, $h);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   method new_from_bytes (
@@ -93,7 +96,7 @@ class GDK::Pixbuf {
       $data, $cs, $ha, $bps, $w, $h, $rs
     );
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   # Would Blob be a better type for $data?
@@ -121,7 +124,7 @@ class GDK::Pixbuf {
       $destroy_fn_data
     );
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   method new_from_file (
@@ -134,7 +137,7 @@ class GDK::Pixbuf {
     my $pixbuf = gdk_pixbuf_new_from_file($filename, $error);
     set_error($error);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   method new_from_file_at_scale (
@@ -154,7 +157,7 @@ class GDK::Pixbuf {
     );
     set_error($error);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   method new_from_file_at_scale_utf8 (
@@ -174,7 +177,7 @@ class GDK::Pixbuf {
     );
     set_error($error);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   method new_from_file_at_size (
@@ -190,7 +193,7 @@ class GDK::Pixbuf {
     my $pixbuf = gdk_pixbuf_new_from_file_at_size($filename, $w, $h, $error);
     set_error($error);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   method new_from_file_at_size_utf8 (
@@ -208,7 +211,7 @@ class GDK::Pixbuf {
     );
     set_error($error);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   method new_from_file_utf8 (
@@ -221,7 +224,7 @@ class GDK::Pixbuf {
     my $pixbuf = gdk_pixbuf_new_from_file_utf8($filename, $error);
     set_error($error);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   proto method new_from_inline (|)
@@ -253,7 +256,7 @@ class GDK::Pixbuf {
     my $pixbuf = gdk_pixbuf_new_from_inline($l, $data, $cp, $error);
     set_error($error);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   method new_from_resource (
@@ -266,7 +269,7 @@ class GDK::Pixbuf {
     my $pixbuf = gdk_pixbuf_new_from_resource($resource_path, $error);
     set_error($error);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   method new_from_resource_at_scale (
@@ -286,7 +289,7 @@ class GDK::Pixbuf {
     );
     set_error($error);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   method new_from_stream (
@@ -300,7 +303,7 @@ class GDK::Pixbuf {
     my $pixbuf = gdk_pixbuf_new_from_stream($stream, $cancellable, $error);
     set_error($error);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   proto method new_from_stream_async (|)
@@ -346,7 +349,7 @@ class GDK::Pixbuf {
     );
     set_error($error);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   proto method new_from_stream_at_scale_async (|)
@@ -383,9 +386,11 @@ class GDK::Pixbuf {
     my gint ($w, $h) = ($width, $height);
     my gboolean $prs = $preserve_aspect_ratio;
 
-    gdk_pixbuf_new_from_stream_at_scale_async(
+    my $pixbuf = gdk_pixbuf_new_from_stream_at_scale_async(
       $stream, $w, $h, $prs, $cancellable, $callback, $user_data
     );
+
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   method new_from_stream_finish (
@@ -398,7 +403,7 @@ class GDK::Pixbuf {
     my $pixbuf = gdk_pixbuf_new_from_stream_finish($result, $error);
     set_error($error);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   proto method new_from_xpm_data(|)
@@ -417,7 +422,7 @@ class GDK::Pixbuf {
   multi method new_from_xpm_data(CArray[Str] $data) {
     my $pixbuf = gdk_pixbuf_new_from_xpm_data($data);
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
   method new_subpixbuf (
@@ -435,7 +440,7 @@ class GDK::Pixbuf {
     say "src: { $src // 'NOSRC!' }";
     say "sub-pix opts: ($sx, $sy, $w, $h)";
 
-    $pixbuf ?? self.bless(:$pixbuf) !! Nil;
+    $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
   # ↑↑↑↑ OBJECT CREATION ↑↑↑↑
 
@@ -648,27 +653,22 @@ class GDK::Pixbuf {
 
   method saturate_and_pixelate (
     GdkPixbuf() $dest,
-    Num() $saturation,
-    Int() $pixelate
+    Num()       $saturation,
+    Int()       $pixelate
   )
     is also<saturate-and-pixelate>
   {
-    my gfloat $s = $saturation;
+    my gfloat   $s = $saturation;
     my gboolean $p = $pixelate;
 
     gdk_pixbuf_saturate_and_pixelate($!p, $dest, $s, $p);
   }
 
   method !PREP_OPTIONS(@option_keys, @option_values) {
-    my ($ok, $ov) = (CArray[Str].new xx 2);
-
-    for ( [$ok, @option_keys], [$ov, @option_values] ) -> $d {
-      my $idx = 0;
-      $d[0][$idx++] = $_ for $d[1];
-      $d[0][$idx] = Str;
-    }
-
-    ($ok, $ov);
+    (
+      @option_keys.elems   ?? resolve-gstrv(@option_keys)   !! CArray[Str],
+      @option_values.elems ?? resolve-gstrv(@option_values) !! CArray[Str]
+    )
   }
 
   method save_to_bufferv (
@@ -796,11 +796,11 @@ class GDK::Pixbuf {
   }
 
   method savev (
-    Str() $filename,
-    Str() $type,
-    @option_keys,
-    @option_values,
-    CArray[Pointer[GError]] $error = gerror()
+    Str()                   $filename,
+    Str()                   $type,
+                            @option_keys   = (),
+                            @option_values = (),
+    CArray[Pointer[GError]] $error         = gerror()
   ) {
     warn "Format '$type' may not be supported"
       unless $type eq <jpeg tiff png ico bmp>.any;
