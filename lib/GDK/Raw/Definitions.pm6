@@ -10,7 +10,7 @@ use GLib::Roles::Pointers;
 unit package GDK::Raw::Definitions;
 
 # Number of times I've had to force compile the whole project.
-my constant forced = 34;
+my constant forced = 108;
 
 constant gdk        is export = 'gdk-3',v0;
 constant gdk-pixbuf is export = 'gdk_pixbuf-2.0',v0;
@@ -55,6 +55,7 @@ class GdkMonitor             is repr<CPointer> is export does GLib::Roles::Point
 class GdkPixbuf              is repr<CPointer> is export does GLib::Roles::Pointers { }
 class GdkPixbufAnimation     is repr<CPointer> is export does GLib::Roles::Pointers { }
 class GdkPixbufAnimationIter is repr<CPointer> is export does GLib::Roles::Pointers { }
+class GdkPixbufLoader        is repr<CPointer> is export does GLib::Roles::Pointers { }
 class GdkScreen              is repr<CPointer> is export does GLib::Roles::Pointers { }
 class GdkSeat                is repr<CPointer> is export does GLib::Roles::Pointers { }
 class GdkStyleProvider       is repr<CPointer> is export does GLib::Roles::Pointers { }
