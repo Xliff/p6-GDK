@@ -1,92 +1,92 @@
 Dependency Generation
 =====================
-real 0.77
-user 1.18
-sys 0.03
+real 1.03
+user 1.56
+sys 0.06
  === Cairo === (1/97)
 Stage start      :   0.000
-Stage parse      :   0.939
+Stage parse      :   1.491
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.002
+Stage optimize   :   0.002
+Stage mast       :   0.003
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::DBus::Raw::Types === (2/97)
 Stage start      :   0.000
-Stage parse      :   1.233
+Stage parse      :   1.892
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === GIO::Raw::Definitions === (3/97)
 Stage start      :   0.000
-Stage parse      :   0.954
+Stage parse      :   1.565
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.002
+Stage mast       :   0.003
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::Raw::Enums === (4/97)
 Stage start      :   0.000
-Stage parse      :   0.990
+Stage parse      :   1.509
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.010
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === GIO::Raw::Exports === (5/97)
 Stage start      :   0.000
-Stage parse      :   0.841
+Stage parse      :   1.349
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.005
+Stage optimize   :   0.002
+Stage mast       :   0.006
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::Raw::Quarks === (6/97)
 Stage start      :   0.000
-Stage parse      :   1.208
+Stage parse      :   1.831
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::Raw::Structs === (7/97)
 Stage start      :   0.000
-Stage parse      :   1.159
+Stage parse      :   1.783
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::Raw::Subs === (8/97)
 Stage start      :   0.000
-Stage parse      :   1.171
+Stage parse      :   1.815
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::GList === (9/97)
 Stage start      :   0.000
-Stage parse      :   1.201
+Stage parse      :   1.821
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Definitions === (10/97)
 Stage start      :   0.000
-Stage parse      :   0.965
+Stage parse      :   1.571
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -95,61 +95,61 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Enums === (11/97)
 Stage start      :   0.000
-Stage parse      :   1.023
+Stage parse      :   1.593
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.003
-Stage mast       :   0.005
-Stage mbc        :   0.002
+Stage optimize   :   0.004
+Stage mast       :   0.007
+Stage mbc        :   0.003
 Stage moar       :   0.000
  === GLib::Raw::Exceptions === (12/97)
 Stage start      :   0.000
-Stage parse      :   0.849
+Stage parse      :   1.344
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.005
+Stage optimize   :   0.002
+Stage mast       :   0.006
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Exports === (13/97)
 Stage start      :   0.000
-Stage parse      :   0.871
+Stage parse      :   1.385
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage optimize   :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GLib::Raw::Object === (14/97)
 Stage start      :   0.000
-Stage parse      :   1.079
+Stage parse      :   1.585
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::ReturnedValue === (15/97)
 Stage start      :   0.000
-Stage parse      :   0.851
+Stage parse      :   1.321
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.005
+Stage optimize   :   0.002
+Stage mast       :   0.006
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Struct_Subs === (16/97)
 Stage start      :   0.000
-Stage parse      :   0.980
+Stage parse      :   1.505
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage optimize   :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Structs === (17/97)
 Stage start      :   0.000
-Stage parse      :   1.152
+Stage parse      :   1.752
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -158,7 +158,7 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Subs === (18/97)
 Stage start      :   0.000
-Stage parse      :   1.136
+Stage parse      :   1.728
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -167,52 +167,52 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Roles::ListData === (19/97)
 Stage start      :   0.000
-Stage parse      :   1.205
+Stage parse      :   1.799
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Roles::Object === (20/97)
 Stage start      :   0.000
-Stage parse      :   1.326
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.002
-Stage moar       :   0.000
- === GLib::Roles::Pointers === (21/97)
-Stage start      :   0.000
-Stage parse      :   0.937
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.000
-Stage moar       :   0.000
- === GLib::Roles::Properties === (22/97)
-Stage start      :   0.000
-Stage parse      :   1.203
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.001
-Stage moar       :   0.000
- === GLib::Roles::Signals::Generic === (23/97)
-Stage start      :   0.000
-Stage parse      :   1.174
+Stage parse      :   1.959
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
 Stage mast       :   0.002
 Stage mbc        :   0.002
 Stage moar       :   0.000
+ === GLib::Roles::Pointers === (21/97)
+Stage start      :   0.000
+Stage parse      :   1.494
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Roles::Properties === (22/97)
+Stage start      :   0.000
+Stage parse      :   1.795
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GLib::Roles::Signals::Generic === (23/97)
+Stage start      :   0.000
+Stage parse      :   1.829
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
  === GLib::Roles::StaticClass === (24/97)
 Stage start      :   0.000
-Stage parse      :   1.173
+Stage parse      :   1.797
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
@@ -221,52 +221,52 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Roles::TypedBuffer === (25/97)
 Stage start      :   0.000
-Stage parse      :   1.166
+Stage parse      :   1.812
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Value === (26/97)
 Stage start      :   0.000
-Stage parse      :   1.237
+Stage parse      :   1.850
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === Method::Also === (27/97)
 Stage start      :   0.000
-Stage parse      :   0.853
+Stage parse      :   1.304
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.005
+Stage optimize   :   0.002
+Stage mast       :   0.006
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === NativeCall === (28/97)
 Stage start      :   0.000
-Stage parse      :   0.932
+Stage parse      :   1.431
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.007
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === NativeHelpers::Blob === (29/97)
+Stage start      :   0.000
+Stage parse      :   1.483
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
-Stage mbc        :   0.000
-Stage moar       :   0.000
- === NativeHelpers::Blob === (29/97)
-Stage start      :   0.000
-Stage parse      :   0.977
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === Pango::Raw::Definitions === (30/97)
 Stage start      :   0.000
-Stage parse      :   1.010
+Stage parse      :   1.552
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -275,38 +275,38 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === Pango::Raw::Enums === (31/97)
 Stage start      :   0.000
-Stage parse      :   1.004
+Stage parse      :   1.550
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.011
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === Pango::Raw::Exports === (32/97)
+Stage start      :   0.000
+Stage parse      :   1.305
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.006
+Stage mbc        :   0.005
+Stage moar       :   0.000
+ === Pango::Raw::Structs === (33/97)
+Stage start      :   0.000
+Stage parse      :   1.822
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
-Stage mbc        :   0.007
-Stage moar       :   0.000
- === Pango::Raw::Exports === (32/97)
-Stage start      :   0.000
-Stage parse      :   0.861
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.004
-Stage mbc        :   0.001
-Stage moar       :   0.000
- === Pango::Raw::Structs === (33/97)
-Stage start      :   0.000
-Stage parse      :   1.217
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === Pango::Raw::Subs === (34/97)
 Stage start      :   0.000
-Stage parse      :   1.199
+Stage parse      :   1.824
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::X11_Types === (35/97)
@@ -314,17 +314,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/X11_Types.pm6
     Stage start      :   0.000
-    Stage parse      :   1.025
+    Stage parse      :   1.585
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.001
-    Stage mast       :   0.009
-    Stage mbc        :   0.002
-Stage parse      :   2.108
+    Stage optimize   :   0.002
+    Stage mast       :   0.051
+    Stage mbc        :   0.001
+Stage parse      :   3.029
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Definitions === (36/97)
@@ -332,17 +332,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/Definitions.pm6
     Stage start      :   0.000
-    Stage parse      :   1.235
+    Stage parse      :   1.831
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.007
-    Stage mast       :   0.013
-    Stage mbc        :   0.002
-Stage parse      :   2.198
+    Stage mast       :   0.020
+    Stage mbc        :   0.004
+Stage parse      :   3.279
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.010
+Stage optimize   :   0.002
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::RGBA === (37/97)
@@ -350,17 +350,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/RGBA.pm6
     Stage start      :   0.000
-    Stage parse      :   1.443
+    Stage parse      :   2.143
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.018
-    Stage mast       :   0.028
-    Stage mbc        :   0.005
-Stage parse      :   2.671
+    Stage optimize   :   0.025
+    Stage mast       :   0.032
+    Stage mbc        :   0.007
+Stage parse      :   3.728
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Enums === (38/97)
@@ -368,62 +368,72 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/Enums.pm6
     Stage start      :   0.000
-    Stage parse      :   1.783
+    Stage parse      :   2.628
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.039
-    Stage mast       :   0.055
-    Stage mbc        :   0.020
-Stage parse      :   2.970
+    Stage optimize   :   0.060
+    Stage mast       :   0.066
+    Stage mbc        :   0.031
+Stage parse      :   4.249
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.003
-Stage mast       :   0.005
-Stage mbc        :   0.002
+Stage optimize   :   0.004
+Stage mast       :   0.010
+Stage mbc        :   0.003
 Stage moar       :   0.000
  === GDK::Raw::Structs === (39/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/Structs.pm6
     Stage start      :   0.000
-    Stage parse      :   1.594
+    Stage parse      :   2.347
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.043
-    Stage mast       :   0.116
-    Stage mbc        :   0.014
-Stage parse      :   2.857
+    Stage optimize   :   0.058
+    Stage mast       :   0.100
+    Stage mbc        :   0.016
+R: GLib::Roles::Pointers
+Stage parse      :   3.975
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.007
+Stage mbc        :   0.007
 Stage moar       :   0.000
  === GDK::Raw::Subs === (40/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/Subs.pm6
     Stage start      :   0.000
-    Stage parse      :   1.156
+    Stage parse      :   1.707
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.003
-    Stage mast       :   0.009
+    Stage optimize   :   0.004
+    Stage mast       :   0.012
     Stage mbc        :   0.003
-Stage parse      :   2.199
+Stage parse      :   3.155
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Exports === (41/97)
 Stage start      :   0.000
-Stage parse      :   0.862
+
+    precomp lib/GDK/Raw/Exports.pm6
+    Stage start      :   0.000
+    Stage parse      :   0.131
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.003
+    Stage mast       :   0.005
+    Stage mbc        :   0.001
+Stage parse      :   1.528
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.005
+Stage optimize   :   0.002
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Types === (42/97)
@@ -431,35 +441,35 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/Types.pm6
     Stage start      :   0.000
-    Stage parse      :   1.833
+    Stage parse      :   2.700
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.002
-    Stage mast       :   0.014
-    Stage mbc        :   0.003
-Stage parse      :   3.137
+    Stage optimize   :   0.003
+    Stage mast       :   0.016
+    Stage mbc        :   0.004
+Stage parse      :   4.360
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.009
-Stage mast       :   0.020
-Stage mbc        :   0.005
+Stage optimize   :   0.016
+Stage mast       :   0.023
+Stage mbc        :   0.012
 Stage moar       :   0.000
  === GDK::Raw::Visual === (43/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/Visual.pm6
     Stage start      :   0.000
-    Stage parse      :   1.653
+    Stage parse      :   2.531
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.022
-    Stage mast       :   0.037
-    Stage mbc        :   0.028
-Stage parse      :   2.797
+    Stage optimize   :   0.028
+    Stage mast       :   0.043
+    Stage mbc        :   0.031
+Stage parse      :   4.250
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.003
+Stage mast       :   0.014
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Window === (44/97)
@@ -467,17 +477,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/Window.pm6
     Stage start      :   0.000
-    Stage parse      :   5.270
+    Stage parse      :   7.577
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.087
-    Stage mast       :   0.184
-    Stage mbc        :   0.215
-Stage parse      :   7.064
+    Stage optimize   :   0.128
+    Stage mast       :   0.250
+    Stage mbc        :   0.245
+Stage parse      :   9.943
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.010
+Stage optimize   :   0.003
+Stage mast       :   0.005
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::X11_Display === (45/97)
@@ -485,35 +495,35 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/X11_Display.pm6
     Stage start      :   0.000
-    Stage parse      :   1.291
+    Stage parse      :   1.901
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.009
-    Stage mast       :   0.028
-    Stage mbc        :   0.005
-Stage parse      :   2.383
+    Stage optimize   :   0.011
+    Stage mast       :   0.031
+    Stage mbc        :   0.007
+Stage parse      :   3.391
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.007
+Stage mbc        :   0.008
 Stage moar       :   0.000
  === GDK::Raw::X11_Screen === (46/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/X11_Screen.pm6
     Stage start      :   0.000
-    Stage parse      :   1.496
+    Stage parse      :   2.103
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.018
+    Stage optimize   :   0.019
     Stage mast       :   0.025
-    Stage mbc        :   0.014
-Stage parse      :   2.786
+    Stage mbc        :   0.035
+Stage parse      :   3.779
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.002
+Stage optimize   :   0.002
+Stage mast       :   0.014
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::X11_Window === (47/97)
@@ -521,17 +531,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/X11_Window.pm6
     Stage start      :   0.000
-    Stage parse      :   1.528
+    Stage parse      :   2.205
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.016
-    Stage mast       :   0.079
-    Stage mbc        :   0.019
-Stage parse      :   2.885
+    Stage optimize   :   0.023
+    Stage mast       :   0.099
+    Stage mbc        :   0.022
+Stage parse      :   3.930
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.002
+Stage optimize   :   0.002
+Stage mast       :   0.014
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Roles::Signals::Device === (48/97)
@@ -539,17 +549,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Roles/Signals/Device.pm6
     Stage start      :   0.000
-    Stage parse      :   1.639
+    Stage parse      :   2.410
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.012
-    Stage mast       :   0.018
-    Stage mbc        :   0.014
-Stage parse      :   2.705
+    Stage optimize   :   0.024
+    Stage mast       :   0.040
+    Stage mbc        :   0.010
+Stage parse      :   4.091
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.014
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Roles::Signals::Pixbuf::Loader === (49/97)
@@ -557,17 +567,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Roles/Signals/Pixbuf/Loader.pm6
     Stage start      :   0.000
-    Stage parse      :   1.379
+    Stage parse      :   2.136
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.021
-    Stage mast       :   0.033
-    Stage mbc        :   0.008
-Stage parse      :   2.444
+    Stage optimize   :   0.030
+    Stage mast       :   0.036
+    Stage mbc        :   0.010
+Stage parse      :   3.811
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Roles::Signals::Window === (50/97)
@@ -575,89 +585,89 @@ Stage start      :   0.000
 
     precomp lib/GDK/Roles/Signals/Window.pm6
     Stage start      :   0.000
-    Stage parse      :   1.594
+    Stage parse      :   2.338
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.026
-    Stage mast       :   0.046
-    Stage mbc        :   0.011
-Stage parse      :   2.882
+    Stage optimize   :   0.034
+    Stage mast       :   0.050
+    Stage mbc        :   0.014
+Stage parse      :   4.014
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.002
+Stage optimize   :   0.002
+Stage mast       :   0.014
+Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Pixbuf::Raw::Animation === (51/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Pixbuf/Raw/Animation.pm6
     Stage start      :   0.000
-    Stage parse      :   1.742
+    Stage parse      :   2.386
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.025
-    Stage mast       :   0.039
-    Stage mbc        :   0.025
-Stage parse      :   2.852
+    Stage optimize   :   0.029
+    Stage mast       :   0.044
+    Stage mbc        :   0.031
+Stage parse      :   4.069
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
-Stage mbc        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.014
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::AppLaunchContext === (52/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/AppLaunchContext.pm6
     Stage start      :   0.000
-    Stage parse      :   1.359
+    Stage parse      :   1.975
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.017
-    Stage mast       :   0.018
-    Stage mbc        :   0.010
-Stage parse      :   2.430
+    Stage optimize   :   0.018
+    Stage mast       :   0.023
+    Stage mbc        :   0.013
+Stage parse      :   3.625
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.013
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Cairo === (53/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/Cairo.pm6
     Stage start      :   0.000
-    Stage parse      :   1.530
+    Stage parse      :   2.281
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.017
-    Stage mast       :   0.030
-    Stage mbc        :   0.017
-Stage parse      :   2.610
+    Stage optimize   :   0.025
+    Stage mast       :   0.040
+    Stage mbc        :   0.019
+Stage parse      :   3.953
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
-Stage mbc        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.014
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Cursor === (54/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/Cursor.pm6
     Stage start      :   0.000
-    Stage parse      :   1.541
+    Stage parse      :   2.230
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.017
-    Stage mast       :   0.029
-    Stage mbc        :   0.018
-Stage parse      :   2.786
+    Stage optimize   :   0.022
+    Stage mast       :   0.051
+    Stage mbc        :   0.021
+Stage parse      :   3.904
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.002
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Device === (55/97)
@@ -665,17 +675,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/Device.pm6
     Stage start      :   0.000
-    Stage parse      :   2.148
+    Stage parse      :   3.028
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.031
-    Stage mast       :   0.061
-    Stage mbc        :   0.044
-Stage parse      :   3.333
+    Stage optimize   :   0.041
+    Stage mast       :   0.072
+    Stage mbc        :   0.053
+Stage parse      :   4.800
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Display === (56/97)
@@ -683,17 +693,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/Display.pm6
     Stage start      :   0.000
-    Stage parse      :   2.382
+    Stage parse      :   3.399
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.037
-    Stage mast       :   0.105
-    Stage mbc        :   0.059
-Stage parse      :   3.830
+    Stage optimize   :   0.046
+    Stage mast       :   0.168
+    Stage mbc        :   0.074
+Stage parse      :   5.337
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.005
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::DisplayManager === (57/97)
@@ -701,53 +711,53 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/DisplayManager.pm6
     Stage start      :   0.000
-    Stage parse      :   1.338
+    Stage parse      :   2.046
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.015
-    Stage mast       :   0.018
-    Stage mbc        :   0.010
-Stage parse      :   2.402
+    Stage optimize   :   0.026
+    Stage mast       :   0.024
+    Stage mbc        :   0.011
+Stage parse      :   3.694
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
-Stage mbc        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.004
+Stage mbc        :   0.010
 Stage moar       :   0.000
  === GDK::Raw::DragContext === (58/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/DragContext.pm6
     Stage start      :   0.000
-    Stage parse      :   1.868
+    Stage parse      :   2.685
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.024
-    Stage mast       :   0.073
-    Stage mbc        :   0.035
-Stage parse      :   3.043
+    Stage optimize   :   0.032
+    Stage mast       :   0.079
+    Stage mbc        :   0.042
+Stage parse      :   4.446
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
-Stage mbc        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.014
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Event === (59/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/Event.pm6
     Stage start      :   0.000
-    Stage parse      :   2.319
+    Stage parse      :   3.234
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.034
-    Stage mast       :   0.062
-    Stage mbc        :   0.055
-Stage parse      :   3.524
+    Stage optimize   :   0.043
+    Stage mast       :   0.084
+    Stage mbc        :   0.065
+Stage parse      :   5.048
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
+Stage mast       :   0.014
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::FrameClock === (60/97)
@@ -755,35 +765,35 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/FrameClock.pm6
     Stage start      :   0.000
-    Stage parse      :   1.396
+    Stage parse      :   2.106
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.016
-    Stage mast       :   0.031
-    Stage mbc        :   0.014
-Stage parse      :   2.477
+    Stage optimize   :   0.020
+    Stage mast       :   0.040
+    Stage mbc        :   0.018
+Stage parse      :   3.759
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
-Stage mbc        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.004
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::FrameTimings === (61/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/FrameTimings.pm6
     Stage start      :   0.000
-    Stage parse      :   1.372
+    Stage parse      :   2.061
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.015
-    Stage mast       :   0.020
-    Stage mbc        :   0.018
-Stage parse      :   2.456
+    Stage optimize   :   0.019
+    Stage mast       :   0.025
+    Stage mbc        :   0.017
+Stage parse      :   3.713
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.014
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Raw::Keymap === (62/97)
@@ -791,17 +801,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/Keymap.pm6
     Stage start      :   0.000
-    Stage parse      :   1.897
+    Stage parse      :   2.633
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.023
-    Stage mast       :   0.045
-    Stage mbc        :   0.031
-Stage parse      :   3.029
+    Stage optimize   :   0.029
+    Stage mast       :   0.061
+    Stage mbc        :   0.098
+Stage parse      :   4.433
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
+Stage mast       :   0.014
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Main === (63/97)
@@ -809,53 +819,53 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/Main.pm6
     Stage start      :   0.000
-    Stage parse      :   1.562
+    Stage parse      :   2.324
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.017
-    Stage mast       :   0.029
-    Stage mbc        :   0.021
-Stage parse      :   2.641
+    Stage optimize   :   0.023
+    Stage mast       :   0.036
+    Stage mbc        :   0.027
+Stage parse      :   3.995
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
-Stage mbc        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.015
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Monitor === (64/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/Monitor.pm6
     Stage start      :   0.000
-    Stage parse      :   1.461
+    Stage parse      :   2.156
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.017
-    Stage mast       :   0.028
-    Stage mbc        :   0.017
-Stage parse      :   2.550
+    Stage optimize   :   0.021
+    Stage mast       :   0.040
+    Stage mbc        :   0.021
+Stage parse      :   3.807
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
-Stage mbc        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.014
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Pixbuf === (65/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/Pixbuf.pm6
     Stage start      :   0.000
-    Stage parse      :   2.575
+    Stage parse      :   3.650
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.054
-    Stage mast       :   0.135
-    Stage mbc        :   0.073
-Stage parse      :   4.079
+    Stage optimize   :   0.066
+    Stage mast       :   0.201
+    Stage mbc        :   0.089
+Stage parse      :   5.648
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.002
+Stage optimize   :   0.002
+Stage mast       :   0.005
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Pixbuf::Loader === (66/97)
@@ -863,17 +873,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/Pixbuf/Loader.pm6
     Stage start      :   0.000
-    Stage parse      :   1.443
+    Stage parse      :   2.168
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.008
-    Stage mast       :   0.019
-    Stage mbc        :   0.005
-Stage parse      :   2.466
+    Stage optimize   :   0.010
+    Stage mast       :   0.025
+    Stage mbc        :   0.006
+Stage parse      :   3.736
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Raw::Pixbuf::Transforms === (67/97)
@@ -881,53 +891,53 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/Pixbuf/Transforms.pm6
     Stage start      :   0.000
-    Stage parse      :   1.364
+    Stage parse      :   2.035
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.020
-    Stage mast       :   0.036
-    Stage mbc        :   0.011
-Stage parse      :   2.637
+    Stage optimize   :   0.026
+    Stage mast       :   0.045
+    Stage mbc        :   0.014
+Stage parse      :   3.703
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.002
-Stage mbc        :   0.001
-Stage moar       :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.004
+Stage mbc        :   0.000
+Stage moar       :   0.001
  === GDK::Raw::Rectangle === (68/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/Rectangle.pm6
     Stage start      :   0.000
-    Stage parse      :   1.263
+    Stage parse      :   1.928
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.016
-    Stage mast       :   0.018
+    Stage optimize   :   0.018
+    Stage mast       :   0.021
     Stage mbc        :   0.008
-Stage parse      :   2.344
+Stage parse      :   3.548
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
-Stage mbc        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.004
+Stage mbc        :   0.010
 Stage moar       :   0.000
  === GDK::Raw::Screen === (69/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/Screen.pm6
     Stage start      :   0.000
-    Stage parse      :   1.993
+    Stage parse      :   2.914
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.024
-    Stage mast       :   0.075
-    Stage mbc        :   0.041
-Stage parse      :   3.382
+    Stage optimize   :   0.031
+    Stage mast       :   0.076
+    Stage mbc        :   0.048
+Stage parse      :   4.683
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Seat === (70/97)
@@ -935,71 +945,71 @@ Stage start      :   0.000
 
     precomp lib/GDK/Raw/Seat.pm6
     Stage start      :   0.000
-    Stage parse      :   1.380
+    Stage parse      :   2.033
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.015
-    Stage mast       :   0.074
-    Stage mbc        :   0.014
-Stage parse      :   2.527
+    Stage optimize   :   0.020
+    Stage mast       :   0.041
+    Stage mbc        :   0.015
+Stage parse      :   3.694
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
+Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.001
+Stage mbc        :   0.010
 Stage moar       :   0.000
  === GDK::Raw::Selection === (71/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/Selection.pm6
     Stage start      :   0.000
-    Stage parse      :   1.373
+    Stage parse      :   2.062
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.017
-    Stage mast       :   0.028
-    Stage mbc        :   0.011
-Stage parse      :   2.442
+    Stage optimize   :   0.023
+    Stage mast       :   0.036
+    Stage mbc        :   0.015
+Stage parse      :   3.728
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
-Stage mbc        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.005
+Stage mbc        :   0.014
 Stage moar       :   0.000
  === GDK::Raw::Threads === (72/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Raw/Threads.pm6
     Stage start      :   0.000
-    Stage parse      :   1.318
+    Stage parse      :   2.036
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.015
-    Stage mast       :   0.025
-    Stage mbc        :   0.010
-Stage parse      :   2.375
+    Stage optimize   :   0.020
+    Stage mast       :   0.033
+    Stage mbc        :   0.013
+Stage parse      :   3.707
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
-Stage mbc        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.004
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Rectangle === (73/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Rectangle.pm6
     Stage start      :   0.000
-    Stage parse      :   1.326
+    Stage parse      :   1.979
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.015
-    Stage mast       :   0.026
-    Stage mbc        :   0.006
-Stage parse      :   2.385
+    Stage optimize   :   0.019
+    Stage mast       :   0.036
+    Stage mbc        :   0.013
+Stage parse      :   3.627
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.014
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Screen === (74/97)
@@ -1007,35 +1017,37 @@ Stage start      :   0.000
 
     precomp lib/GDK/Screen.pm6
     Stage start      :   0.000
-    Stage parse      :   2.420
+    Stage parse      :   3.453
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.041
-    Stage mast       :   0.056
-    Stage mbc        :   0.021
-Stage parse      :   3.862
+    Stage optimize   :   0.053
+    Stage mast       :   0.079
+    Stage mbc        :   0.027
+R: GLib::Roles::Object
+Stage parse      :   5.269
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.004
+Stage mbc        :   0.000
 Stage moar       :   0.000
+R: GLib::Roles::Signals::Generic
  === GDK::Selection === (75/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Selection.pm6
     Stage start      :   0.000
-    Stage parse      :   1.221
+    Stage parse      :   1.895
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.019
-    Stage mast       :   0.033
-    Stage mbc        :   0.006
-Stage parse      :   2.285
+    Stage optimize   :   0.030
+    Stage mast       :   0.040
+    Stage mbc        :   0.008
+Stage parse      :   3.540
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.013
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Threads === (76/97)
@@ -1043,17 +1055,18 @@ Stage start      :   0.000
 
     precomp lib/GDK/Threads.pm6
     Stage start      :   0.000
-    Stage parse      :   1.221
+    Stage parse      :   1.892
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.012
-    Stage mast       :   0.028
-    Stage mbc        :   0.006
-Stage parse      :   2.275
+    Stage optimize   :   0.024
+    Stage mast       :   0.040
+    Stage mbc        :   0.028
+R: GLib::Roles::StaticClass
+Stage parse      :   3.568
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.014
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Visual === (77/97)
@@ -1061,35 +1074,35 @@ Stage start      :   0.000
 
     precomp lib/GDK/Visual.pm6
     Stage start      :   0.000
-    Stage parse      :   1.386
+    Stage parse      :   2.072
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.019
-    Stage mast       :   0.033
-    Stage mbc        :   0.006
-Stage parse      :   2.529
+    Stage optimize   :   0.038
+    Stage mast       :   0.042
+    Stage mbc        :   0.011
+Stage parse      :   3.822
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
-Stage mbc        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.004
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Cairo === (78/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Cairo.pm6
     Stage start      :   0.000
-    Stage parse      :   1.260
+    Stage parse      :   1.893
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.018
-    Stage mast       :   0.036
-    Stage mbc        :   0.006
-Stage parse      :   2.325
+    Stage optimize   :   0.031
+    Stage mast       :   0.039
+    Stage mbc        :   0.008
+Stage parse      :   3.564
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.013
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Display === (79/97)
@@ -1097,17 +1110,18 @@ Stage start      :   0.000
 
     precomp lib/GDK/Display.pm6
     Stage start      :   0.000
-    Stage parse      :   1.894
+    Stage parse      :   2.826
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.035
-    Stage mast       :   0.051
-    Stage mbc        :   0.006
-Stage parse      :   3.284
+    Stage optimize   :   0.045
+    Stage mast       :   0.111
+    Stage mbc        :   0.009
+R: GLib::Roles::Signals::Generic
+Stage parse      :   4.672
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::DisplayManager === (80/97)
@@ -1115,16 +1129,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/DisplayManager.pm6
     Stage start      :   0.000
-    Stage parse      :   1.754
+    Stage parse      :   2.572
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.016
-    Stage mast       :   0.021
-    Stage mbc        :   0.005
-Stage parse      :   2.880
+    Stage mast       :   0.043
+    Stage mbc        :   0.007
+R: GLib::Roles::Signals::Generic
+Stage parse      :   4.337
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
+Stage optimize   :   0.002
 Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
@@ -1133,17 +1148,18 @@ Stage start      :   0.000
 
     precomp lib/GDK/DragContext.pm6
     Stage start      :   0.000
-    Stage parse      :   1.746
+    Stage parse      :   2.528
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.026
-    Stage mast       :   0.039
-    Stage mbc        :   0.006
-Stage parse      :   2.836
+    Stage optimize   :   0.034
+    Stage mast       :   0.061
+    Stage mbc        :   0.008
+R: GLib::Roles::Signals::Generic
+Stage parse      :   4.214
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::FrameClock === (82/97)
@@ -1151,17 +1167,18 @@ Stage start      :   0.000
 
     precomp lib/GDK/FrameClock.pm6
     Stage start      :   0.000
-    Stage parse      :   1.646
+    Stage parse      :   2.409
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.015
-    Stage mast       :   0.036
-    Stage mbc        :   0.005
-Stage parse      :   2.741
+    Stage optimize   :   0.024
+    Stage mast       :   0.043
+    Stage mbc        :   0.008
+R: GLib::Roles::Signals::Generic
+Stage parse      :   4.099
 Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage ast        :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::FrameTimings === (83/97)
@@ -1169,17 +1186,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/FrameTimings.pm6
     Stage start      :   0.000
-    Stage parse      :   1.229
+    Stage parse      :   1.947
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.013
-    Stage mast       :   0.029
-    Stage mbc        :   0.005
-Stage parse      :   2.299
+    Stage optimize   :   0.024
+    Stage mast       :   0.037
+    Stage mbc        :   0.011
+Stage parse      :   3.616
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.014
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Keymap === (84/97)
@@ -1187,17 +1204,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Keymap.pm6
     Stage start      :   0.000
-    Stage parse      :   1.440
+    Stage parse      :   2.203
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.031
-    Stage mast       :   0.063
-    Stage mbc        :   0.006
-Stage parse      :   2.645
+    Stage optimize   :   0.045
+    Stage mast       :   0.083
+    Stage mbc        :   0.009
+Stage parse      :   4.030
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.011
+Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Main === (85/97)
@@ -1205,17 +1222,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Main.pm6
     Stage start      :   0.000
-    Stage parse      :   1.221
+    Stage parse      :   1.851
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.014
-    Stage mast       :   0.047
-    Stage mbc        :   0.006
-Stage parse      :   2.289
+    Stage optimize   :   0.026
+    Stage mast       :   0.038
+    Stage mbc        :   0.008
+Stage parse      :   3.516
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.017
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Monitor === (86/97)
@@ -1223,17 +1240,18 @@ Stage start      :   0.000
 
     precomp lib/GDK/Monitor.pm6
     Stage start      :   0.000
-    Stage parse      :   1.805
+    Stage parse      :   2.642
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.034
-    Stage mast       :   0.034
-    Stage mbc        :   0.011
-Stage parse      :   2.991
+    Stage optimize   :   0.029
+    Stage mast       :   0.046
+    Stage mbc        :   0.008
+R: GLib::Roles::Signals::Generic
+Stage parse      :   4.404
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Pixbuf::Animation::Iter === (87/97)
@@ -1241,17 +1259,17 @@ Stage start      :   0.000
 
     precomp lib/GDK/Pixbuf/Animation/Iter.pm6
     Stage start      :   0.000
-    Stage parse      :   1.186
+    Stage parse      :   1.838
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.013
-    Stage mast       :   0.021
-    Stage mbc        :   0.008
-Stage parse      :   2.248
+    Stage optimize   :   0.023
+    Stage mast       :   0.027
+    Stage mbc        :   0.011
+Stage parse      :   3.484
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.015
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Pixbuf::Transforms === (88/97)
@@ -1259,34 +1277,36 @@ Stage start      :   0.000
 
     precomp lib/GDK/Pixbuf/Transforms.pm6
     Stage start      :   0.000
-    Stage parse      :   1.319
+    Stage parse      :   1.993
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.031
-    Stage mast       :   0.050
-    Stage mbc        :   0.006
-Stage parse      :   2.632
+    Stage optimize   :   0.030
+    Stage mast       :   0.054
+    Stage mbc        :   0.008
+R: GLib::Roles::StaticClass
+Stage parse      :   3.670
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.013
+Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::AppLaunchContext === (89/97)
 Stage start      :   0.000
 
     precomp lib/GDK/AppLaunchContext.pm6
     Stage start      :   0.000
-    Stage parse      :   1.745
+    Stage parse      :   2.614
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.016
-    Stage mast       :   0.022
-    Stage mbc        :   0.005
-Stage parse      :   2.872
+    Stage optimize   :   0.019
+    Stage mast       :   0.051
+    Stage mbc        :   0.008
+R: GLib::Roles::Properties
+Stage parse      :   4.369
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
+Stage optimize   :   0.002
 Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
@@ -1295,35 +1315,36 @@ Stage start      :   0.000
 
     precomp lib/GDK/Pixbuf.pm6
     Stage start      :   0.000
-    Stage parse      :   2.542
+    Stage parse      :   3.602
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.092
-    Stage mast       :   0.122
-    Stage mbc        :   0.021
-Stage parse      :   4.078
+    Stage optimize   :   0.230
+    Stage mast       :   0.185
+    Stage mbc        :   0.024
+R: GLib::Roles::Object
+Stage parse      :   5.694
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.004
+Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Pixbuf::Animation === (91/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Pixbuf/Animation.pm6
     Stage start      :   0.000
-    Stage parse      :   1.422
+    Stage parse      :   2.177
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.024
-    Stage mast       :   0.032
-    Stage mbc        :   0.006
-Stage parse      :   2.491
+    Stage optimize   :   0.029
+    Stage mast       :   0.040
+    Stage mbc        :   0.008
+Stage parse      :   3.855
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.014
+Stage mast       :   0.005
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Pixbuf::Loader === (92/97)
@@ -1331,89 +1352,94 @@ Stage start      :   0.000
 
     precomp lib/GDK/Pixbuf/Loader.pm6
     Stage start      :   0.000
-    Stage parse      :   1.578
+    Stage parse      :   2.319
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.030
-    Stage mast       :   0.050
-    Stage mbc        :   0.006
-Stage parse      :   2.757
+    Stage optimize   :   0.041
+    Stage mast       :   0.067
+    Stage mbc        :   0.008
+R: GLib::Roles::Object
+Stage parse      :   4.147
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
+R: GDK::Roles::Signals::Pixbuf::Loader
  === GDK::Cursor === (93/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Cursor.pm6
     Stage start      :   0.000
-    Stage parse      :   1.507
+    Stage parse      :   2.343
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.022
-    Stage mast       :   0.028
-    Stage mbc        :   0.008
-Stage parse      :   2.903
+    Stage optimize   :   0.026
+    Stage mast       :   0.040
+    Stage mbc        :   0.013
+Stage parse      :   4.158
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.002
-Stage mbc        :   0.002
+Stage optimize   :   0.002
+Stage mast       :   0.004
+Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Window === (94/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Window.pm6
     Stage start      :   0.000
-    Stage parse      :   2.301
+    Stage parse      :   3.491
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.219
-    Stage mast       :   0.170
-    Stage mbc        :   0.017
-Stage parse      :   4.094
+    Stage optimize   :   0.173
+    Stage mast       :   0.244
+    Stage mbc        :   0.021
+R: GDK::Roles::Signals::Window
+Stage parse      :   5.693
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.001
+Stage optimize   :   0.002
+Stage mast       :   0.004
+Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Device === (95/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Device.pm6
     Stage start      :   0.000
-    Stage parse      :   2.067
+    Stage parse      :   3.086
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.040
-    Stage mast       :   0.078
-    Stage mbc        :   0.006
-Stage parse      :   3.362
+    Stage optimize   :   0.054
+    Stage mast       :   0.108
+    Stage mbc        :   0.008
+R: GDK::Roles::Signals::Device
+Stage parse      :   5.069
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
+R: GLib::Roles::Properties
  === GDK::Event === (96/97)
 Stage start      :   0.000
 
     precomp lib/GDK/Event.pm6
     Stage start      :   0.000
-    Stage parse      :   1.772
+    Stage parse      :   2.562
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.041
-    Stage mast       :   0.062
-    Stage mbc        :   0.059
-Stage parse      :   3.103
+    Stage optimize   :   0.052
+    Stage mast       :   0.120
+    Stage mbc        :   0.014
+Stage parse      :   4.565
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
  === GDK::Seat === (97/97)
@@ -1421,20 +1447,21 @@ Stage start      :   0.000
 
     precomp lib/GDK/Seat.pm6
     Stage start      :   0.000
-    Stage parse      :   1.615
+    Stage parse      :   2.387
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.022
-    Stage mast       :   0.029
-    Stage mbc        :   0.009
-Stage parse      :   2.825
+    Stage optimize   :   0.025
+    Stage mast       :   0.035
+    Stage mbc        :   0.012
+R: GDK::Roles::Signals::Device
+Stage parse      :   4.268
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage optimize   :   0.002
+Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
 
-real 227.77
-user 274.42
-sys 18.74
+real 339.21
+user 412.15
+sys 27.92
