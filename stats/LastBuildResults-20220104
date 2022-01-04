@@ -1,0 +1,24 @@
+Dependency Generation
+=====================
+real 1.43
+user 2.02
+sys 0.06
+ === Cairo === (1/97)
+Stage start      :   0.000
+Stage parse      :   1.477
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GIO::DBus::Raw::Types === (2/97)
+Stage start      :   0.000
+
+    precomp ../p6-GIO/lib/GIO/DBus/Raw/Types.pm6
+    Stage start      :   0.000
+    
+        precomp ../p6-GLib/lib/GLib/Raw/Structs.pm6
+        Stage start      :   0.000
+        
+            precomp ../p6-GLib/lib/GLib/Raw/Subs.pm6
