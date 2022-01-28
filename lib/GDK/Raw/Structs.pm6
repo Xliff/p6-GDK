@@ -36,9 +36,9 @@ class GdkGeometry is repr<CStruct> does GLib::Roles::Pointers is export {
 }
 
 class GdkRectangle is repr<CStruct> does GLib::Roles::Pointers is export {
-  has gint $.x is rw;
-  has gint $.y is rw;
-  has gint $.width is rw;
+  has gint $.x      is rw;
+  has gint $.y      is rw;
+  has gint $.width  is rw;
   has gint $.height is rw;
 }
 
