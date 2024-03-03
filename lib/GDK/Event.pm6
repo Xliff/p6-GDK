@@ -22,13 +22,16 @@ class GDK::Event {
       GtkEvent
     >
   { $!e }
+  method GDK::Raw::Structs::GdkEventKey
+    is also<GdkEventKey>
+  { cast(GdkEventKey, $!e) }
 
   multi method new (GdkEvents $event) {
     $event ?? self.bless( event => cast(GdkEventAny, $event) ) !! Nil;
   }
   multi method new (Int() $type) {
-    my uint32 $t = $type;
-    my $event = cast(GdkEventAny, gdk_event_new($t));
+    my uint32 $t     = $type;
+    my        $event = cast( GdkEventAny, gdk_event_new($t) );
 
     $event ?? self.bless( :$event ) !! Nil;
   }
@@ -224,22 +227,46 @@ class GDK::Event {
     gdk_event_get_axis($!e, $au, $v);
   }
 
-  method get_button (Int() $button) is also<get-button> {
-    my guint $b = $button;
+  proto method get_button (|)
+   is also<get-button>
+  { * }
+
+  multi method get_button is also<buttom> {
+    samewith($);
+  }
+  multi method get_button ($button is rw) {
+    my guint $b = 0;
 
     gdk_event_get_button($!e, $b);
+    $button = $b;
   }
 
-  method get_click_count (Int() $click_count) is also<get-click-count> {
-    my guint $cc = $click_count;
+  proto method get_click_count (|)
+    is also<get-click-count>
+  { * }
+
+  multi method get_click_count is also<click-count> {
+    samewith($);
+  }
+  multi method get_click_count ($click_count is rw)  {
+    my guint $cc = 0;
 
     gdk_event_get_click_count($!e, $cc);
+    $click_count = $cc;
   }
 
-  method get_coords (Num() $x_win, Num() $y_win) is also<get-coords> {
+  proto method get_coords (|)
+    is also<get-coords>
+  { * }
+
+  multi method get_coords is also<coords> {
+    samewith($, $);
+  }
+  multi method get_coords ($x_win is rw, $y_win is rw)  {
     my gdouble ($xw, $yw) = ($x_win, $y_win);
 
     gdk_event_get_coords($!e, $xw, $yw);
+    ($x_win, $y_win) = ($xw, $yw
   }
 
   method get_event_sequence is also<get-event-sequence> {
@@ -256,28 +283,49 @@ class GDK::Event {
     gdk_event_get_event_type($!e);
   }
 
-  method get_keycode (Int() $keycode) is also<get-keycode> {
-    my guint16 $kc = $keycode;
+  proto method get_keycode (|)
+    is also<get-keycode>
+  { * }
+
+  method get_keycode is also<keycode> {
+    samewith($);
+  }
+  method get_keycode ($keycode is rw)  {
+    my guint16 $kc = 0;
 
     gdk_event_get_keycode($!e, $kc);
+    $keycode = $kc;
   }
 
-  method get_keyval (Int() $keyval) is also<get-keyval> {
-    my guint $kv = $keyval;
+  proto method get_keyval (|)
+  { * }
+
+  multi method get_keyval is also<keyval> {
+    samewith($);
+  }
+  multi method get_keyval ($keyval is rw) is also<get-keyval> {
+    my guint $kv = 0;
 
     gdk_event_get_keyval($!e, $kv);
+    $keyval = $kv;
   }
 
   method get_pointer_emulated is also<get-pointer-emulated> {
     gdk_event_get_pointer_emulated($!e);
   }
 
-  method get_root_coords (Num() $x_root, Num() $y_root)
+  proto method get_root_coords (|)
     is also<get-root-coords>
-  {
-    my gdouble ($xr, $yr) = ($x_root, $y_root);
+  { * }
 
-    gdk_event_get_root_coords($!e, $x_root, $y_root);
+  multi method get_root_coords {
+    samewith($, $);
+  }
+  multi method get_root_coords ($x_root is rw, $y_root is rw) {
+    my gdouble ($xr, $yr) = 0e0 xx 2;
+
+    gdk_event_get_root_coords($!e, $xr, $yr);
+    ($x_root, $y_root) = ($xr, $yr);
   }
 
   method get_scancode
@@ -289,22 +337,33 @@ class GDK::Event {
     gdk_event_get_scancode($!e);
   }
 
-  method get_scroll_deltas (Num() $delta_x, Num() $delta_y)
+  proto method get_scroll_deltas (|)
     is also<get-scroll-deltas>
-  {
-    my gdouble ($dx, $dy) = ($delta_x, $delta_y);
+  { * }
+
+  multi method get_scroll_deltas {
+    samewith($, $);
+  }
+  multi method get_scroll_deltas ($delta_x is rw, $delta_y is rw) {
+    my gdouble ($dx, $dy) = 0e0 xx 2;
 
     gdk_event_get_scroll_deltas($!e, $dx, $dy);
+    ($delta_x, $delta_y) = ($dx, $dy);
   }
 
-  method get_scroll_direction (
-    Int() $direction              # GdkScrollDirection $direction
-  )
+  proto method get_scroll_direction (|)
+  { * }
+
+  multi method get_scroll_direction is also<direction> {
+    samewith($);
+  }
+  multi method get_scroll_direction ($direction is rw)
     is also<get-scroll-direction>
   {
-    my guint $d = $direction;
+    my GdkScrollDirection $d = 0;
 
     gdk_event_get_scroll_direction($!e, $d);
+    $direction = $d;
   }
 
   method get_seat
@@ -316,14 +375,18 @@ class GDK::Event {
     gdk_event_get_seat($!e);
   }
 
-  method get_state (
-    Int() $state                  # GdkModifierType $state
-  )
+  proto method get_state (|)
     is also<get-state>
-  {
-    my guint $s = $state;
+  { * }
+
+  method get_state is also<state> {
+    samewith($);
+  }
+  method get_state ($state is rw) {
+    my GdkModifierType $s = 0;
 
     gdk_event_get_state($!e, $s);
+    $state = $s;
   }
 
   proto method get_time (|)
@@ -340,8 +403,12 @@ class GDK::Event {
     gdk_event_get_time($!e);
   }
 
-  method get_window is also<get-window> {
-    gdk_event_get_window($!e);
+  method get_window is also<get-window> ( :$raw = False ) {
+    propReturnObject(
+      gdk_event_get_window($!e),
+      $raw,
+      |::('GDK::Window').getTypePair
+    )
   }
 
   method handler_set (

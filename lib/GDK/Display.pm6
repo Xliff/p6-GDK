@@ -3,6 +3,7 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
+use GLib::Raw::Traits;
 use GDK::Raw::Types;
 use GDK::Raw::Display;
 use GDK::Raw::X11_Display;
@@ -12,7 +13,7 @@ use GLib::Roles::Signals::Generic;
 
 use GDK::Screen;
 
-class GDK::Display {
+class GDK::Display does Positional {
   also does GLib::Roles::Signals::Generic;
 
   has GdkDisplay $!d is implementor;
@@ -47,7 +48,12 @@ class GDK::Display {
     $display ?? self.bless( :$display ) !! Nil;
   }
 
-  method get_default is also<get-default> {
+  method get_default
+    is also<
+      get-default
+      default
+    >
+  {
     my $display = gdk_display_get_default();
 
     # cw: The above expression returns NULL, so this is the only other
@@ -63,21 +69,21 @@ class GDK::Display {
 
   # Is originally:
   # GdkDisplay, gboolean, gpointer --> void
-  method closed {
-    self.connect($!d, 'closed');
-  }
+  # method closed {
+  #   self.connect($!d, 'closed');
+  # }
 
   # Is originally:
   # GdkDisplay, GdkMonitor, gpointer --> void
-  method monitor-added is also<monitor_added> {
-    self.connect($!d, 'monitor-added');
-  }
+  # method monitor-added is also<monitor_added> {
+  #   self.connect($!d, 'monitor-added');
+  # }
 
   # Is originally:
   # GdkDisplay, GdkMonitor, gpointer --> void
-  method monitor-removed is also<monitor_removed> {
-    self.connect($!d, 'monitor-removed');
-  }
+  # method monitor-removed is also<monitor_removed> {
+  #   self.connect($!d, 'monitor-removed');
+  # }
 
   # Is originally:
   # GdkDisplay, gpointer --> void
@@ -87,15 +93,15 @@ class GDK::Display {
 
   # Is originally:
   # GdkDisplay, GdkSeat, gpointer --> void
-  method seat-added is also<seat_added> {
-    self.connect($!d, 'seat-added');
-  }
+  # method seat-added is also<seat_added> {
+  #   self.connect($!d, 'seat-added');
+  # }
 
   # Is originally:
   # GdkDisplay, GdkSeat, gpointer --> void
-  method seat-removed is also<seat_removed> {
-    self.connect($!d, 'seat-removed');
-  }
+  # method seat-removed is also<seat_removed> {
+  #   self.connect($!d, 'seat-removed');
+  # }
 
   # ↑↑↑↑ SIGNALS ↑↑↑↑
 
@@ -122,15 +128,33 @@ class GDK::Display {
     gdk_display_flush($!d);
   }
 
-  method get_app_launch_context is also<get-app-launch-context> {
+  method get_app_launch_context
+    is also<
+      get-app-launch-context
+      app_launch_context
+      app-launch-context
+    >
+  {
     gdk_display_get_app_launch_context($!d);
   }
 
-  method get_default_cursor_size is also<get-default-cursor-size> {
+  method get_default_cursor_size
+    is also<
+      get-default-cursor-size
+      default_cursor_size
+      default-cursor-size
+    >
+  {
     gdk_display_get_default_cursor_size($!d);
   }
 
-  method get_default_group (:$raw = False) is also<get-default-group> {
+  method get_default_group (:$raw = False)
+    is also<
+      get-default-group
+      default_group
+      default-group
+    >
+  {
     my $gw = gdk_display_get_default_group($!d);
 
     $gw ??
@@ -139,7 +163,13 @@ class GDK::Display {
       Nil;
   }
 
-  method get_default_screen (:$raw = False) is also<get-default-screen> {
+  method get_default_screen (:$raw = False)
+    is also<
+      get-default-screen
+      default-screen
+      default_screen
+    >
+  {
     my $s = gdk_display_get_default_screen($!d);
 
     $s ??
@@ -148,7 +178,13 @@ class GDK::Display {
       Nil;
   }
 
-  method get_default_seat (:$raw = False) is also<get-default-seat> {
+  method get_default_seat (:$raw = False)
+    is also<
+      get-default-seat
+      default_seat
+      default-seat
+    >
+  {
     my $seat = gdk_display_get_default_seat($!d);
 
     $seat ??
@@ -161,7 +197,12 @@ class GDK::Display {
   #   gdk_display_get_device_manager($!d);
   # }
 
-  method get_event (:$raw = False) is also<get-event> {
+  method get_event (:$raw = False)
+    is also<
+      get-event
+      event
+    >
+  {
     my $e = gdk_display_get_event($!d);
 
     $e ??
@@ -171,15 +212,25 @@ class GDK::Display {
   }
 
   method get_maximal_cursor_size (Int() $width, Int() $height)
-    is also<get-maximal-cursor-size>
+    is also<
+      get-maximal-cursor-size
+      maximal_cursor_size
+      maximal-cursor-size
+    >
   {
     my guint ($w, $h) = ($width, $height);
 
     gdk_display_get_maximal_cursor_size($!d, $w, $h);
   }
 
+  method AT-POS (\k) {
+    self.get_monitor(k);
+  }
   method get_monitor (Int() $monitor_num, :$raw = False)
-    is also<get-monitor>
+    is also<
+      get-monitor
+      monitor
+    >
   {
     my gint $m = $monitor_num;
 
@@ -192,7 +243,11 @@ class GDK::Display {
   }
 
   method get_monitor_at_point (Int() $x, Int() $y, :$raw = False)
-    is also<get-monitor-at-point>
+    is also<
+      get-monitor-at-point
+      monitor_at_point
+      monitor-at-point
+    >
   {
     my gint ($xx, $yy) = ($x, $y);
 
@@ -205,7 +260,11 @@ class GDK::Display {
   }
 
   method get_monitor_at_window (GdkWindow() $window, :$raw = False)
-    is also<get-monitor-at-window>
+    is also<
+      get-monitor-at-window
+      monitor_at_window
+      monitor-at-window
+    >
   {
     my $m = gdk_display_get_monitor_at_window($!d, $window);
 
@@ -215,7 +274,14 @@ class GDK::Display {
       Nil;
   }
 
-  method get_n_monitors is also<get-n-monitors> {
+  method get_n_monitors
+    is also<
+      get-n-monitors
+      n-monitors
+      n_monitors
+      elems
+    >
+  {
     gdk_display_get_n_monitors($!d);
   }
 
@@ -223,7 +289,12 @@ class GDK::Display {
   #   gdk_display_get_n_screens($!d);
   # }
 
-  method get_name is also<get-name> {
+  method get_name
+    is also<
+      get-name
+      name
+    >
+  {
     gdk_display_get_name($!d);
   }
 
@@ -241,7 +312,13 @@ class GDK::Display {
   #   gdk_display_get_pointer($!d, $screen, $xx, $yy, $m);
   # }
 
-  method get_primary_monitor (:$raw = False) is also<get-primary-monitor> {
+  method get_primary_monitor (:$raw = False)
+    is also<
+      get-primary-monitor
+      primary_monitor
+      primary-monitor
+    >
+  {
     my $m = gdk_display_get_primary_monitor($!d);
 
     $m ??
@@ -488,6 +565,14 @@ class GDK::Display {
 
   method x11_ungrab is also<x11-ungrab> {
     gdk_x11_display_ungrab($!d);
+  }
+
+}
+
+class GDK::Display::Default is GDK::Display {
+
+  method new {
+    nextwith( GDK::Display.get_default() )
   }
 
 }

@@ -6,7 +6,11 @@ use NativeCall;
 use GDK::Raw::Types;
 use GDK::Raw::Rectangle;
 
+use GLib::Roles::Implementor;
+
 class GDK::Rectangle {
+  also does GLib::Roles::Implementor;
+
   has GdkRectangle $!r is implementor handles <x y width height>;
 
   submethod BUILD(:$rectangle) {
@@ -29,10 +33,11 @@ class GDK::Rectangle {
   # ↓↓↓↓ METHODS ↓↓↓↓
   multi method new {
     my $rectangle = GdkRectangle.new;
-    self.bless(:$rectangle);
+
+    $rectangle ?? self.bless(:$rectangle) !! Nil;
   }
   multi method new (GdkRectangle $rectangle) {
-    self.bless(:$rectangle);
+    $rectangle ?? self.bless(:$rectangle) !! Nil;
   }
 
   method equal (GdkRectangle() $rect2) {

@@ -6,8 +6,10 @@ use NativeCall;
 use Cairo;
 
 use GLib::Raw::Definitions;
+use GLib::Raw::Subs;
 use GDK::Raw::Definitions;
 use GDK::Raw::Enums;
+use GDK::KeySyms;
 
 use GLib::Roles::Pointers;
 
@@ -40,6 +42,15 @@ class GdkRectangle is repr<CStruct> does GLib::Roles::Pointers is export {
   has gint $.y      is rw;
   has gint $.width  is rw;
   has gint $.height is rw;
+
+  method x1 { self.x               }
+  method x2 { self.x + self.width  }
+  method y1 { self.y               }
+  method y2 { self.y + self.height }
+
+  method Bool {
+    $.width > 0 && $.height > 0
+  }
 }
 
 class GdkPixbufModulePattern is repr<CStruct> does GLib::Roles::Pointers is export {
@@ -49,7 +60,7 @@ class GdkPixbufModulePattern is repr<CStruct> does GLib::Roles::Pointers is expo
 }
 
 class GdkPixbufFormat is repr<CStruct> does GLib::Roles::Pointers is export {
-  has Str                     $.name;
+  has CArray[uint8]           $.name-a;
   has GdkPixbufModulePattern  $.signature;
   has Str                     $.domain;
   has Str                     $.description;
@@ -58,6 +69,17 @@ class GdkPixbufFormat is repr<CStruct> does GLib::Roles::Pointers is export {
   has guint32                 $.flags;
   has gboolean                $.disabled;
   has Str                     $.license;
+
+  method name ( :$encoding = 'utf8' ) {
+    Proxy.new:
+      FETCH => -> $ {
+        Buf.new(
+          $!name-a[ ^nullTerminatedArraySize($!name-a) ]
+        ).decode($encoding)
+      },
+
+      STORE => -> $, \v { $!name-a := v }
+  }
 }
 
 class GdkPoint is repr<CStruct> does GLib::Roles::Pointers is export {
@@ -91,6 +113,10 @@ class GdkEventKey is repr<CStruct> does GLib::Roles::Pointers is export {
   has uint32       $.is_modifier;
 
   method GDK::Raw::Structs::GdkEvent { nativecast(GdkEventAny, self) }
+
+  method key-enum is also<key_enum> {
+    GdkKeySymbolsEnum(self.keyval);
+  }
 }
 
 class GdkEventButton is repr<CStruct> does GLib::Roles::Pointers is export {

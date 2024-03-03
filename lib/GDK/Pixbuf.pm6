@@ -8,7 +8,7 @@ use GDK::Raw::Pixbuf;
 
 use GDK::Pixbuf::Transforms;
 
-use GLib::GList;
+use GLib::GSList;
 
 use GLib::Roles::Object;
 use GLib::Roles::ListData;
@@ -127,17 +127,26 @@ class GDK::Pixbuf {
     $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
   }
 
-  method new_from_file (
+  proto method new_from_file (|)
+    is also<new-from-file>
+  { * }
+
+  multi method new_from_file (
     Str() $filename,
     CArray[Pointer[GError]] $error = gerror()
-  )
-    is also<new-from-file>
-  {
+  ) {
     clear_error;
     my $pixbuf = gdk_pixbuf_new_from_file($filename, $error);
     set_error($error);
 
     $pixbuf ?? self.bless( :$pixbuf ) !! Nil;
+  }
+  multi method new_from_file (
+    IO()                     $file,
+    CArray[Pointer[GError]]  $error             = gerror(),
+                            :$io    is required
+  ) {
+    samewith($file.absolute, $error);
   }
 
   method new_from_file_at_scale (
@@ -245,9 +254,9 @@ class GDK::Pixbuf {
     samewith(@data.elems, Buf.new(@data), $copy_pixels, $error);
   }
   multi method new_from_inline (
-    Int() $length,
-    Blob $data,
-    Int() $copy_pixels,
+    Int()                   $length,
+    gpointer                $data,
+    Int()                   $copy_pixels,
     CArray[Pointer[GError]] $error = gerror()
   ) {
     my gint $l  = $length;
@@ -492,13 +501,13 @@ class GDK::Pixbuf {
   }
 
   method copy_area (
-    Int() $src_x,
-    Int() $src_y,
-    Int() $width,
-    Int() $height,
+    Int()       $src_x,
+    Int()       $src_y,
+    Int()       $width,
+    Int()       $height,
     GdkPixbuf() $dest_pixbuf,
-    Int() $dest_x,
-    Int() $dest_y
+    Int()       $dest_x,
+    Int()       $dest_y
   )
     is also<copy-area>
   {
@@ -795,15 +804,20 @@ class GDK::Pixbuf {
     );
   }
 
+  # Need a method .save that emulates the var-arg version.
+
   method savev (
     Str()                   $filename,
     Str()                   $type,
                             @option_keys   = (),
                             @option_values = (),
     CArray[Pointer[GError]] $error         = gerror()
-  ) {
+  )
+    is also<save>
+  {
     warn "Format '$type' may not be supported"
       unless $type eq <jpeg tiff png ico bmp>.any;
+
     my ($ok, $ov) = self!PREP_OPTIONS(@option_keys, @option_values);
 
     clear_error;
@@ -845,22 +859,18 @@ class GDK::Pixbuf {
 
   method get_formats (
     GDK::Pixbuf:U:
-    :gslist(:$glist) = False,
+
+    :glist(:$gslist) = False,
     :$raw            = False
   )
     is also<get-formats>
   {
-    my $f = gdk_pixbuf_get_formats();
-
-    return Nil unless $f;
-    return $f  if $glist && $raw;
-
-    # XXX - Should be GSList, but implementation is not properly working!!
-    my $fl = GLib::GList.new($f)
-      but GLib::Roles::ListData[GdkPixbufFormat];
-    return $fl if $glist;
-
-    $fl.Array;
+    returnGSList(
+      gdk_pixbuf_get_formats(),
+      $raw,
+      $gslist,
+      GdkPixbufFormat
+    )
   }
 
   # ↑↑↑↑ METHODS ↑↑↑↑

@@ -11,7 +11,7 @@ use GDK::Screen;
 class GDK::Visual {
   has GdkVisual $!vis is implementor;
 
-  submethod BUILD(:$visual) {
+  submethod BUILD ( :$visual ) {
     $!vis = $visual;
   }
 
@@ -19,7 +19,9 @@ class GDK::Visual {
     is also<GdkVisual>
   { $!vis }
 
-  multi method new (GdkVisual $visual) {
+  method new (GdkVisual $visual) {
+    say "GDK::Visual.new: { $visual // '»UNDEF«' }";
+
     $visual ?? self.bless(:$visual) !! Nil;
   }
 

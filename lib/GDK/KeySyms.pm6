@@ -1,11 +1,14 @@
 use v6.c;
 
+use NativeCall;
+
 unit package GDK::KeySyms;
 
 # Number of times I've had to force compile the whole project.
-my constant forced = 53;
+my constant forced = 250;
 
-our enum GdkKeySymbols is export (
+our constant GdkKeySymbols is export := uint32;
+our enum GdkKeySymbolsEnum is export (
    GDK_KEY_VoidSymbol                  => 0xffffff,
    GDK_KEY_BackSpace                   => 0xff08,
    GDK_KEY_Tab                         => 0xff09,

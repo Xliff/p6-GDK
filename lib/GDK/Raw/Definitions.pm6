@@ -10,12 +10,13 @@ use GLib::Roles::Pointers;
 unit package GDK::Raw::Definitions;
 
 # Number of times I've had to force compile the whole project.
-my constant forced = 108;
+my constant forced = 305;
 
 constant gdk        is export = 'gdk-3',v0;
 constant gdk-pixbuf is export = 'gdk_pixbuf-2.0',v0;
 
 constant GDK_MAX_TIMECOORD_AXES is export = 128;
+constant GDK_CURRENT_TIME       is export = 0;
 
 constant cairo_t                        is export := Cairo::cairo_t;
 constant cairo_format_t                 is export := Cairo::cairo_format_t;

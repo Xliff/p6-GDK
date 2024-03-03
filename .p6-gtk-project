@@ -1,3 +1,4 @@
 prefix=GDK
+struct-prefix=Gdk
 modules=GDK::Raw::Types
 backups=backup,bitbucket

@@ -280,6 +280,8 @@ class GDK::Screen {
   {
     my $v = gdk_screen_get_rgba_visual($!screen);
 
+    say "V: { $v // '»UNDEF«' }";
+
     $v ??
       ( $raw ?? $v !! ::('GDK::Visual').new($v, :!ref) )
       !!

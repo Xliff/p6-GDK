@@ -23,6 +23,7 @@ class GDK::RGBA {
 
   # Do NOT alias, as the struct and the class are the same!
   method GDK::Raw::Definitions::GdkRGBA
+    is also<GdkRGBA>
   { self }
 
   multi method new (
@@ -42,7 +43,7 @@ class GDK::RGBA {
   )
     is also<new_rgba>
   {
-    die '$alpha must be between 0 and 1'  unless $alpha ~~ 0..1;
+    die '$alpha must b e between 0 and 1'  unless $alpha ~~ 0..1;
     GDK::RGBA.new(
       $red   / 255,
       $green / 255,
@@ -64,6 +65,11 @@ class GDK::RGBA {
       $blue  / 255
     );
   }
+
+  method r is rw { $!red   }
+  method g is rw { $!green }
+  method b is rw { $!blue  }
+  method a is rw { $!alpha }
 
   method copy (:$raw = False) {
     gdk_rgba_copy(self);
