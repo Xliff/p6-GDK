@@ -8,6 +8,7 @@ use GDK::Raw::Exports;
 unit package GDK::Raw::Types;
 
 need Cairo;
+need GLib::Raw::Debug;
 need GLib::Raw::Definitions;
 need GLib::Raw::Enums;
 need GLib::Raw::Exceptions;
@@ -16,6 +17,7 @@ need GLib::Raw::Structs;
 need GLib::Raw::Subs;
 need GLib::Raw::Struct_Subs;
 need GLib::Roles::Pointers;
+need GLib::Roles::Implementor;
 need Pango::Raw::Definitions;
 need Pango::Raw::Enums;
 need Pango::Raw::Structs;
