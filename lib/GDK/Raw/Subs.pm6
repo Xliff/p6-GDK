@@ -18,3 +18,18 @@ sub gdkMakeAtom($i) is export {
   my $c = CArray[int64].new($ii);
   nativecast(GdkAtom, $c);
 }
+
+sub isShift (GdkEventKey() $e) is export {
+  $e.state +& GDK_MODIFIER_SHIFT_MASK
+}
+
+sub isControl (GdkEventKey() $e) is export {
+  $e.state +& GDK_MODIFIER_CONTROL_MASK;
+}+
+sub isCtrl (GdkEventKey() $e) is export {
+  isControl($e);
+}
+
+sub isAlt (GdkKeyEvent() $e) is export {
+  $e.state +& GDK_MODIFIER_ALT_MASK;
+}
