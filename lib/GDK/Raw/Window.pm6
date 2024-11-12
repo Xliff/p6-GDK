@@ -2,8 +2,13 @@ use v6.c;
 
 use NativeCall;
 
+use GLib::Raw::Definitions;
+use GLib::Raw::Structs;
+use GDK::Raw::Definitions;
+use GDK::Raw::Enums;
+use GDK::Raw::Structs;
+
 use GDK::RGBA;
-use GDK::Raw::Types;
 
 unit package GDK::Raw::Window;
 

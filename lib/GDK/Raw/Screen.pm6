@@ -2,7 +2,12 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Types;
+use Cairo;
+use GLib::Raw::Definitions;
+use GLib::Raw::Structs;
+use Pango::Raw::Definitions;
+use GDK::Raw::Definitions;
+use GDK::Raw::Structs;
 
 unit package GDK::Raw::Screen;
 

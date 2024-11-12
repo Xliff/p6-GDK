@@ -2,7 +2,8 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Types;
+use GLib::Raw::Definitions;
+use GDK::Raw::Definitions;
 use GDK::Raw::X11_Types;
 
 unit package GDK::Raw::X11_Screen;
