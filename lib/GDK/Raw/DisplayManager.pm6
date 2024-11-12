@@ -2,7 +2,9 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Types;
+use GLib::Raw::Definitions;
+use GLib::Raw::Structs;
+use GDK::Raw::Definitions;
 
 unit package GDK::Raw::DisplayManager;
 
@@ -24,7 +26,7 @@ sub gdk_display_manager_list_displays (GdkDisplayManager $manager)
   is export
   { * }
 
-sub gdk_display_manager_open_display (GdkDisplayManager $manager, gchar $name)
+sub gdk_display_manager_open_display (GdkDisplayManager $manager, Str $name)
   returns GdkDisplay
   is native(gdk)
   is export

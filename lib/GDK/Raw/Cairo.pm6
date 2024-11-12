@@ -1,9 +1,11 @@
 use v6.c;
 
-use Cairo;
 use NativeCall;
 
-use GDK::Raw::Types;
+use Cairo;
+use GLib::Raw::Definitions;
+use GDK::Raw::Definitions;
+use GDK::Raw::Structs;
 use GDK::RGBA;
 
 unit package GDK::Raw::Cairo;
@@ -41,10 +43,12 @@ sub gdk_cairo_get_drawing_context (Cairo::cairo_t $cr)
   is export
 { * }
 
-sub gdk_cairo_rectangle (Cairo::cairo_t $cr, GdkRectangle $rectangle)
+sub gdk_cairo_rectangle (cairo_t $cr, GdkRectangle $rectangle)
   is native(gdk)
   is export
 { * }
+
+constant cairo_region_t = gpointer;
 
 sub gdk_cairo_region (Cairo::cairo_t $cr, cairo_region_t $region)
   is native(gdk)

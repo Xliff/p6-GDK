@@ -2,7 +2,9 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Types;
+use Cairo;
+use GLib::Raw::Definitions;
+use GDK::Raw::Definitions;
 
 unit package GDK::Raw::Cursor;
 
@@ -29,7 +31,7 @@ sub gdk_cursor_get_surface (
   gdouble $x_hot,
   gdouble $y_hot
 )
-  returns cairo_surface_t
+  returns Cairo::cairo_surface_t
   is native(gdk)
   is export
   { * }
@@ -76,7 +78,7 @@ sub gdk_cursor_new_from_pixbuf (
 
 sub gdk_cursor_new_from_surface (
   GdkDisplay $display,
-  cairo_surface_t $surface,
+  Cairo::cairo_surface_t $surface,
   gdouble $x,
   gdouble $y
 )

@@ -2,7 +2,9 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Types;
+use GLib::Raw::Definitions;
+use GIO::Raw::Definitions;
+use GDK::Raw::Definitions;
 
 unit package GDK::Raw::AppLaunchContext;
 

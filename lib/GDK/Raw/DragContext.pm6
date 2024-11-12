@@ -2,7 +2,9 @@ use v6.c;
 
 use NativeCall;
 
-use GDK::Raw::Types;
+use GLib::Raw::Definitions;
+use GLib::Raw::Structs;
+use GDK::Raw::Definitions;
 
 unit package GDK::Raw::DragContext;
 
