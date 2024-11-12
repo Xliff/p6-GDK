@@ -13,18 +13,19 @@ class GDK::Pixbuf::Transforms {
 
   method composite (
     GDK::Pixbuf::Transforms:U:
+
     GdkPixbuf() $src,
     GdkPixbuf() $dest,
-    Int() $dest_x,
-    Int() $dest_y,
-    Int() $dest_width,
-    Int() $dest_height,
-    Num() $offset_x,
-    Num() $offset_y,
-    Num() $scale_x,
-    Num() $scale_y,
-    Int() $interp_type,
-    Int() $overall_alpha
+    Int()       $dest_x,
+    Int()       $dest_y,
+    Int()       $dest_width,
+    Int()       $dest_height,
+    Num()       $offset_x,
+    Num()       $offset_y,
+    Num()       $scale_x,
+    Num()       $scale_y,
+    Int()       $interp_type,
+    Int()       $overall_alpha
   ) {
     my gint ($dx, $dy, $dw, $dh, $oa) =
       ($dest_x, $dest_y, $dest_width, $dest_height, $overall_alpha);
@@ -44,23 +45,24 @@ class GDK::Pixbuf::Transforms {
 
   method composite_color (
     GDK::Pixbuf::Transforms:U:
+
     GdkPixbuf() $src,
     GdkPixbuf() $dest,
-    Int() $dest_x,
-    Int() $dest_y,
-    Int() $dest_width,
-    Int() $dest_height,
-    Num() $offset_x,
-    Num() $offset_y,
-    Num() $scale_x,
-    Num() $scale_y,
-    Int() $interp_type,
-    Int() $overall_alpha,
-    Int() $check_x,
-    Int() $check_y,
-    Int() $check_size,
-    Int() $color1,
-    Int() $color2
+    Int()       $dest_x,
+    Int()       $dest_y,
+    Int()       $dest_width,
+    Int()       $dest_height,
+    Num()       $offset_x,
+    Num()       $offset_y,
+    Num()       $scale_x,
+    Num()       $scale_y,
+    Int()       $interp_type,
+    Int()       $overall_alpha,
+    Int()       $check_x,
+    Int()       $check_y,
+    Int()       $check_size,
+    Int()       $color1,
+    Int()       $color2
   )
     is also<composite-color>
   {
@@ -87,14 +89,15 @@ class GDK::Pixbuf::Transforms {
 
   method composite_color_simple (
     GDK::Pixbuf::Transforms:U:
+
     GdkPixbuf() $src,
-    Int() $dest_width,
-    Int() $dest_height,
-    Int() $interp_type,
-    Int() $overall_alpha,
-    Int() $check_size,
-    Int() $color1,
-    Int() $color2
+    Int()       $dest_width,
+    Int()       $dest_height,
+    Int()       $interp_type,
+    Int()       $overall_alpha,
+    Int()       $check_size,
+    Int()       $color1,
+    Int()       $color2
   )
     is also<composite-color-simple>
   {
@@ -109,8 +112,9 @@ class GDK::Pixbuf::Transforms {
 
   method flip (
     GDK::Pixbuf::Transforms:U:
+
     GdkPixbuf() $src,
-    Int() $horizontal
+    Int()       $horizontal
   ) {
     my gboolean $h = $horizontal.so.Int;
 
@@ -119,8 +123,9 @@ class GDK::Pixbuf::Transforms {
 
   method rotate_simple (
     GDK::Pixbuf::Transforms:U:
+
     GdkPixbuf() $src,
-    Int() $angle
+    Int()       $angle
   )
     is also<rotate-simple>
   {
@@ -131,17 +136,18 @@ class GDK::Pixbuf::Transforms {
 
   method scale (
     GDK::Pixbuf::Transforms:U:
+
     GdkPixbuf() $src,
     GdkPixbuf() $dest,
-    Int() $dest_x,
-    Int() $dest_y,
-    Int() $dest_width,
-    Int() $dest_height,
-    Num() $offset_x,
-    Num() $offset_y,
-    Num() $scale_x,
-    Num() $scale_y,
-    Int() $interp_type
+    Int()       $dest_x,
+    Int()       $dest_y,
+    Int()       $dest_width,
+    Int()       $dest_height,
+    Num()       $offset_x,
+    Num()       $offset_y,
+    Num()       $scale_x,
+    Num()       $scale_y,
+    Int()       $interp_type
   ) {
     my gint ($dx, $dy, $dw, $dh) =
       ($dest_x, $dest_y, $dest_width, $dest_height);
@@ -160,15 +166,16 @@ class GDK::Pixbuf::Transforms {
 
   method scale_simple (
     GDK::Pixbuf::Transforms:U:
+
     GdkPixbuf() $src,
-    Int() $dest_width,
-    Int() $dest_height,
-    Int() $interp_type
+    Int()       $dest_width,
+    Int()       $dest_height,
+    Int()       $interp_type  = GDK_INTERP_BILINEAR
   )
     is also<scale-simple>
   {
     my gint ($dw, $dh) = ($dest_width, $dest_height);
-    my guint $it = $interp_type;
+    my guint $it       =  $interp_type;
 
     gdk_pixbuf_scale_simple($src, $dw, $dh, $it);
   }
