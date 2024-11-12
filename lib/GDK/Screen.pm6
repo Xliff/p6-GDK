@@ -3,7 +3,6 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use Cairo;
 use GDK::Raw::Types;
 use GDK::Raw::Screen;
 use GDK::Raw::X11_Screen;
