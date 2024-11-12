@@ -5,7 +5,7 @@ use NativeCall;
 unit package GDK::KeySyms;
 
 # Number of times I've had to force compile the whole project.
-my constant forced = 250;
+my constant forced = 262;
 
 our constant GdkKeySymbols is export := uint32;
 our enum GdkKeySymbolsEnum is export (
