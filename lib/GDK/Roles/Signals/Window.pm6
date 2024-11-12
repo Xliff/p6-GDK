@@ -2,7 +2,6 @@ use v6.c;
 
 use NativeCall;
 
-use Cairo;
 use GLib::Raw::ReturnedValue;
 use GDK::Raw::Types;
 
@@ -119,20 +118,20 @@ role GDK::Roles::Signals::Window {
 # GdkWindow, gint, gint, gpointer --> CairoSurface
 sub g-connect-create-surface(
   Pointer $app,
-  Str $name,
-  &handler (Pointer, gint, gint, Pointer --> cairo_surface_t),
+  Str     $name,
+          &handler (Pointer, gint, gint, Pointer --> cairo_surface_t),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }
 
 # GdkWindow, gdouble, gdouble, gpointer, gpointer, gpointer --> void
 sub g-connect-embedder(
   Pointer $app,
-  Str $name,
+  Str     $name,
   &handler (
     Pointer,
     gdouble,
@@ -142,36 +141,42 @@ sub g-connect-embedder(
     Pointer
   ),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
   { * }
 
 # For now, use GdkRectangle instead of pointer.
 # GdkWindow, gpointer, gpointer, gboolean, gboolean, gpointer --> void
 sub g-connect-moved-to-rect(
   Pointer $app,
-  Str $name,
-  &handler (Pointer, GdkRectangle, GdkRectangle, gboolean, gboolean),
+  Str     $name,
+          &handler (
+            Pointer,
+            GdkRectangle,
+            GdkRectangle,
+            gboolean,
+            gboolean
+          ),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
   is native('gobject-2.0')
   is symbol('g_signal_connect_object')
-  { * }
+{ * }
 
 # GdkWindow, gdouble, gdouble, gpointer --> GdkWindow
 sub g-connect-pick-embedded-child(
   Pointer $app,
-  Str $name,
-  &handler (Pointer, gdouble, gdouble, Pointer --> GdkWindow),
+  Str     $name,
+          &handler (Pointer, gdouble, gdouble, Pointer --> GdkWindow),
   Pointer $data,
-  uint32 $flags
+  uint32  $flags
 )
   returns uint64
-  is native('gobject-2.0')
-  is symbol('g_signal_connect_object')
-  { * }
+  is      native('gobject-2.0')
+  is      symbol('g_signal_connect_object')
+{ * }
