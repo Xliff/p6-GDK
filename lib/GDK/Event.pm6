@@ -266,7 +266,7 @@ class GDK::Event {
     my gdouble ($xw, $yw) = ($x_win, $y_win);
 
     gdk_event_get_coords($!e, $xw, $yw);
-    ($x_win, $y_win) = ($xw, $yw
+    ($x_win, $y_win) = ($xw, $yw)
   }
 
   method get_event_sequence is also<get-event-sequence> {
@@ -287,10 +287,10 @@ class GDK::Event {
     is also<get-keycode>
   { * }
 
-  method get_keycode is also<keycode> {
+  multi method get_keycode is also<keycode> {
     samewith($);
   }
-  method get_keycode ($keycode is rw)  {
+  multi method get_keycode ($keycode is rw)  {
     my guint16 $kc = 0;
 
     gdk_event_get_keycode($!e, $kc);
@@ -379,10 +379,10 @@ class GDK::Event {
     is also<get-state>
   { * }
 
-  method get_state is also<state> {
+  multi method get_state is also<state> {
     samewith($);
   }
-  method get_state ($state is rw) {
+  multi method get_state ($state is rw) {
     my GdkModifierType $s = 0;
 
     gdk_event_get_state($!e, $s);
@@ -403,7 +403,7 @@ class GDK::Event {
     gdk_event_get_time($!e);
   }
 
-  method get_window is also<get-window> ( :$raw = False ) {
+  method get_window ( :$raw = False ) is also<get-window> {
     propReturnObject(
       gdk_event_get_window($!e),
       $raw,
